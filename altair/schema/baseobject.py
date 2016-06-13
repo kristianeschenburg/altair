@@ -73,6 +73,19 @@ class BaseObject(T.HasTraits):
         kwargs = self.infer_keywords(*args, **kwargs)
         return self.update_traits(**kwargs)
 
+    def update_nested(self, attrs, *args, **kwargs):
+        if len(attrs) == 0:
+            self.update_inferred_traits(*args, **kwargs)
+        else:
+            attr = attrs[0]
+            if attr not in self.traits():
+                raise ValueError('{0} has no trait {1}'.format(self, attr))
+            trait = getattr(self, attr)
+            if trait is None:
+                trait = self.traits()[attr].klass()
+            setattr(self, attr, trait.update_nested(attrs[1:], *args, **kwargs))
+        return self
+
     def __contains__(self, key):
         try:
             value = getattr(self, key)

@@ -90,22 +90,16 @@ class TopLevelMixin(object):
     # transform method
     def transform_data(self, *args, **kwargs):
         """Set the data transform by keyword args."""
-        if self.transform is None:
-            self.transform = schema.Transform()
-        self.transform.update_inferred_traits(*args, **kwargs)
-        return self
+        return self.update_nested(['transform'], *args, **kwargs)
 
     # Configuration methods
     def configure(self, *args, **kwargs):
         """Set chart configuration"""
-        if self.config is None:
-            self.config = schema.Config()
-        self.config.update_inferred_traits(*args, **kwargs)
-        return self
+        return self.update_nested(['config'], *args, **kwargs)
 
-    def configure_axis(self, **kwargs):
+    def configure_axis(self, *args, **kwargs):
         """Configure the chart's axes by keyword args."""
-        return self.configure(axis=AxisConfig(**kwargs))
+        return self.update_nested(['config', 'axis'], *args, **kwargs)
 
     def configure_cell(self, **kwargs):
         """Configure the chart's cell's by keyword args."""
