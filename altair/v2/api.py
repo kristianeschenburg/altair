@@ -21,37 +21,185 @@ from . import schema
 
 from .schema import jstraitlets as jst
 
-from .schema import AxisConfig
+from .schema import AggregateOp
+from .schema import AndFilter
 from .schema import Axis
+from .schema import AxisConfig
+from .schema import AxisConfigMixins
+from .schema import AxisEncoding
+from .schema import AxisOrient
+from .schema import BOXPLOT
+from .schema import BarConfig
+from .schema import BaseBin
+from .schema import BaseSelectionDef
+from .schema import BaseSpec
 from .schema import Bin
+from .schema import BinTransform
+from .schema import BoxPlotConfig
+from .schema import BoxPlotConfigMixins
+from .schema import BoxPlotDef
+from .schema import BrushConfig
+from .schema import CalculateTransform
 from .schema import CellConfig
+from .schema import Color
+from .schema import Column
+from .schema import CompositeMarkConfigMixins
+from .schema import CompositeMarkDef
+from .schema import CompositeUnitSpec
+from .schema import CompositeUnitSpecAlias
+from .schema import ConditionLegendFieldDef
+from .schema import ConditionNumberValueDef
+from .schema import ConditionOnlyNumberLegendDef
+from .schema import ConditionOnlyStringLegendDef
+from .schema import ConditionOnlyTextDef
+from .schema import ConditionStringValueDef
+from .schema import ConditionTextFieldDef
+from .schema import ConditionTextValueDef
+from .schema import ConditionalNumberLegend
+from .schema import ConditionalNumberLegendDef
+from .schema import ConditionalNumberLegendFieldDef
+from .schema import ConditionalNumberLegendValueDef
+from .schema import ConditionalStringLegend
+from .schema import ConditionalStringLegendDef
+from .schema import ConditionalStringLegendFieldDef
+from .schema import ConditionalStringLegendValueDef
+from .schema import ConditionalText
+from .schema import ConditionalTextDef
+from .schema import ConditionalTextFieldDef
+from .schema import ConditionalTextValueDef
 from .schema import Config
 from .schema import Data
 from .schema import DataFormat
+from .schema import DataFormatType
+from .schema import DataUrlFormat
 from .schema import DateTime
+from .schema import Detail
+from .schema import ERRORBAR
+from .schema import Encoding
+from .schema import EncodingWithFacet
 from .schema import EqualFilter
-from .schema import FacetConfig
-from .schema import FacetGridConfig
-from .schema import FacetScaleConfig
+from .schema import ExtendedScheme
+from .schema import Facet
+from .schema import FacetField
+from .schema import FacetFieldDef
+from .schema import FacetedCompositeUnitSpecAlias
+from .schema import FacetedSpec
+from .schema import FacetedUnitSpec
+from .schema import Field
+from .schema import FieldDef
+from .schema import FieldDefBase
+from .schema import FilterTransform
 from .schema import FontStyle
 from .schema import FontWeight
+from .schema import Guide
+from .schema import GuideEncodingEntry
+from .schema import HConcatSpec
+from .schema import Header
 from .schema import HorizontalAlign
-from .schema import LegendConfig
+from .schema import InlineData
+from .schema import Interpolate
+from .schema import IntervalSelection
+from .schema import IntervalSelectionConfig
+from .schema import LayerSpec
+from .schema import LayoutSizeMixins
 from .schema import Legend
+from .schema import LegendConfig
+from .schema import LegendEncoding
+from .schema import LegendFieldDef
+from .schema import LegendOrient
+from .schema import LookupData
+from .schema import LookupTransform
+from .schema import Mark
 from .schema import MarkConfig
-from .schema import NiceTime
+from .schema import MarkConfigMixins
+from .schema import MarkDef
+from .schema import MultiSelection
+from .schema import MultiSelectionConfig
+from .schema import NamedData
+from .schema import NonspatialResolve
+from .schema import NotFilter
+from .schema import NumberValueDef
 from .schema import OneOfFilter
-from .schema import OverlayConfig
+from .schema import Opacity
+from .schema import OrFilter
+from .schema import Order
+from .schema import OrderField
+from .schema import OrderFieldDef
+from .schema import Orient
+from .schema import PositionField
+from .schema import PositionFieldDef
 from .schema import RangeFilter
+from .schema import Repeat
+from .schema import RepeatRef
+from .schema import RepeatSpec
+from .schema import ResolveMapping
+from .schema import ResolveMode
+from .schema import Row
 from .schema import Scale
 from .schema import ScaleConfig
+from .schema import ScaleFieldDef
+from .schema import ScaleType
+from .schema import SelectionAnd
+from .schema import SelectionConfig
+from .schema import SelectionDef
+from .schema import SelectionDomain
+from .schema import SelectionFilter
+from .schema import SelectionNot
+from .schema import SelectionOr
+from .schema import SelectionResolution
+from .schema import Shape
+from .schema import SingleDefChannel
+from .schema import SingleSelection
+from .schema import SingleSelectionConfig
+from .schema import Size
 from .schema import SortField
-from .schema import SortOrder
+from .schema import SpatialResolve
+from .schema import Spec
 from .schema import StackOffset
+from .schema import StringValueDef
+from .schema import Summarize
+from .schema import SummarizeTransform
+from .schema import Text
+from .schema import TextConfig
+from .schema import TextFieldDef
+from .schema import TextValueDef
+from .schema import TickConfig
 from .schema import TimeUnit
-from .schema import UnitSpec
-from .schema import UnitEncoding
+from .schema import TimeUnitTransform
+from .schema import Tooltip
+from .schema import TopLevelExtendedSpec
+from .schema import TopLevelFacetedSpec
+from .schema import TopLevelFacetedUnitSpec
+from .schema import TopLevelHConcatSpec
+from .schema import TopLevelLayerSpec
+from .schema import TopLevelProperties
+from .schema import TopLevelRepeatSpec
+from .schema import TopLevelVConcatSpec
+from .schema import Transform
+from .schema import Type
+from .schema import UrlData
+from .schema import VConcatSpec
+from .schema import VLOnlyConfig
+from .schema import ValueDef
 from .schema import VerticalAlign
+from .schema import VgAxisBase
+from .schema import VgAxisConfig
+from .schema import VgBinding
+from .schema import VgCheckboxBinding
+from .schema import VgGenericBinding
+from .schema import VgLegendBase
+from .schema import VgLegendConfig
+from .schema import VgMarkConfig
+from .schema import VgRadioBinding
+from .schema import VgRangeBinding
+from .schema import VgRangeScheme
+from .schema import VgSelectBinding
+from .schema import VgTitleConfig
+from .schema import VlOnlyGuideConfig
+from .schema import X
+from .schema import X2
+from .schema import Y
+from .schema import Y2
 
 
 class MaxRowsExceeded(Exception):
@@ -60,7 +208,7 @@ class MaxRowsExceeded(Exception):
 
 class FieldError(Exception):
     """Raised if a channel has a field related error.
-    
+
     This is raised if a channel has no field name or if the field name is
     not found as the column name of the ``DataFrame``.
     """
@@ -108,9 +256,6 @@ def disable_mime_rendering():
 # Channel Aliases
 #*************************************************************************
 
-from .schema import X, Y, Row, Column, Color, Size, Shape, Text, Label, Detail, Opacity, Order, Path
-from .schema import Encoding, Facet
-
 
 def use_signature(Obj):
     """Apply call signature and documentation of Obj to the decorated method"""
@@ -132,19 +277,20 @@ def use_signature(Obj):
 # - allows expr trait to be an Expression and processes it properly
 #*************************************************************************
 
-class Formula(schema.Formula):
-    expr = jst.JSONUnion([jst.JSONString(),
-                          jst.JSONInstance(expr.Expression)],
-                         help=schema.Formula.expr.help)
-
-    def __init__(self, field, expr=jst.undefined, **kwargs):
-        super(Formula, self).__init__(field=field, expr=expr, **kwargs)
-
-    def _finalize(self, **kwargs):
-        """Finalize object: convert expr expression to string if necessary"""
-        if isinstance(self.expr, expr.Expression):
-            self.expr = repr(self.expr)
-        super(Formula, self)._finalize(**kwargs)
+# TODO: what is the new name of this?
+# class Formula(schema.Formula):
+#     expr = jst.JSONUnion([jst.JSONString(),
+#                           jst.JSONInstance(expr.Expression)],
+#                          help=schema.Formula.expr.help)
+#
+#     def __init__(self, field, expr=jst.undefined, **kwargs):
+#         super(Formula, self).__init__(field=field, expr=expr, **kwargs)
+#
+#     def _finalize(self, **kwargs):
+#         """Finalize object: convert expr expression to string if necessary"""
+#         if isinstance(self.expr, expr.Expression):
+#             self.expr = repr(self.expr)
+#         super(Formula, self)._finalize(**kwargs)
 
 
 #*************************************************************************
@@ -152,27 +298,28 @@ class Formula(schema.Formula):
 # - allows filter trait to be an Expression and processes it properly
 #*************************************************************************
 
-class Transform(schema.Transform):
-    filter = jst.JSONUnion([jst.JSONString(),
-                            jst.JSONInstance(expr.Expression),
-                            jst.JSONInstance(schema.EqualFilter),
-                            jst.JSONInstance(schema.RangeFilter),
-                            jst.JSONInstance(schema.OneOfFilter),
-                            jst.JSONArray(jst.JSONUnion([
-                                jst.JSONString(),
-                                jst.JSONInstance(expr.Expression),
-                                jst.JSONInstance(schema.EqualFilter),
-                                jst.JSONInstance(schema.RangeFilter),
-                                jst.JSONInstance(schema.OneOfFilter)]))],
-                           help=schema.Transform.filter.help)
-
-    def _finalize(self, **kwargs):
-        """Finalize object: convert filter expressions to string"""
-        convert = lambda f: repr(f) if isinstance(f, expr.Expression) else f
-        self.filter = convert(self.filter)
-        if isinstance(self.filter, list):
-            self.filter = [convert(f) for f in self.filter]
-        super(Transform, self)._finalize(**kwargs)
+# TODO: what is the new name of this?
+# class Transform(schema.Transform):
+#     filter = jst.JSONUnion([jst.JSONString(),
+#                             jst.JSONInstance(expr.Expression),
+#                             jst.JSONInstance(schema.EqualFilter),
+#                             jst.JSONInstance(schema.RangeFilter),
+#                             jst.JSONInstance(schema.OneOfFilter),
+#                             jst.JSONArray(jst.JSONUnion([
+#                                 jst.JSONString(),
+#                                 jst.JSONInstance(expr.Expression),
+#                                 jst.JSONInstance(schema.EqualFilter),
+#                                 jst.JSONInstance(schema.RangeFilter),
+#                                 jst.JSONInstance(schema.OneOfFilter)]))],
+#                            help=schema.Transform.filter.help)
+#
+#     def _finalize(self, **kwargs):
+#         """Finalize object: convert filter expressions to string"""
+#         convert = lambda f: repr(f) if isinstance(f, expr.Expression) else f
+#         self.filter = convert(self.filter)
+#         if isinstance(self.filter, list):
+#             self.filter = [convert(f) for f in self.filter]
+#         super(Transform, self)._finalize(**kwargs)
 
 
 #*************************************************************************
@@ -365,76 +512,77 @@ class TopLevelMixin(object):
         """Emit the Python code as a string required to created this Chart."""
         return super(TopLevelMixin, self).to_python(data=data)
 
-    # transform method
-    @use_signature(schema.Transform)
-    def transform_data(self, *args, **kwargs):
-        """Set the data transform by keyword args."""
-        return update_subtraits(self, 'transform', *args, **kwargs)
-
-    # Configuration methods
-    @use_signature(schema.Config)
-    def configure(self, *args, **kwargs):
-        """Set chart configuration"""
-        return update_subtraits(self, 'config', *args, **kwargs)
-
-    @use_signature(AxisConfig)
-    def configure_axis(self, *args, **kwargs):
-        """Configure the chart's axes by keyword args."""
-        return update_subtraits(self, ('config', 'axis'), *args, **kwargs)
-
-    @use_signature(CellConfig)
-    def configure_cell(self, *args, **kwargs):
-        """Configure the chart's cell's by keyword args."""
-        return update_subtraits(self, ('config', 'cell'), *args, **kwargs)
-
-    @use_signature(LegendConfig)
-    def configure_legend(self, *args, **kwargs):
-        """Configure the chart's legend by keyword args."""
-        return update_subtraits(self, ('config', 'legend'), *args, **kwargs)
-
-    @use_signature(OverlayConfig)
-    def configure_overlay(self, *args, **kwargs):
-        """Configure the chart's overlay by keyword args."""
-        return update_subtraits(self, ('config', 'overlay'), *args, **kwargs)
-
+    # TODO: add these methods for appropriate config options
+    # # transform method
+    # @use_signature(schema.Transform)
+    # def transform_data(self, *args, **kwargs):
+    #     """Set the data transform by keyword args."""
+    #     return update_subtraits(self, 'transform', *args, **kwargs)
+    #
+    # # Configuration methods
+    # @use_signature(schema.Config)
+    # def configure(self, *args, **kwargs):
+    #     """Set chart configuration"""
+    #     return update_subtraits(self, 'config', *args, **kwargs)
+    #
+    # @use_signature(AxisConfig)
+    # def configure_axis(self, *args, **kwargs):
+    #     """Configure the chart's axes by keyword args."""
+    #     return update_subtraits(self, ('config', 'axis'), *args, **kwargs)
+    #
+    # @use_signature(CellConfig)
+    # def configure_cell(self, *args, **kwargs):
+    #     """Configure the chart's cell's by keyword args."""
+    #     return update_subtraits(self, ('config', 'cell'), *args, **kwargs)
+    #
+    # @use_signature(LegendConfig)
+    # def configure_legend(self, *args, **kwargs):
+    #     """Configure the chart's legend by keyword args."""
+    #     return update_subtraits(self, ('config', 'legend'), *args, **kwargs)
+    #
+    # @use_signature(OverlayConfig)
+    # def configure_overlay(self, *args, **kwargs):
+    #     """Configure the chart's overlay by keyword args."""
+    #     return update_subtraits(self, ('config', 'overlay'), *args, **kwargs)
+    #
     @use_signature(MarkConfig)
     def configure_mark(self, *args, **kwargs):
-        """Configure the chart's marks by keyword args."""
-        return update_subtraits(self, ('config', 'mark'), *args, **kwargs)
-
-    @use_signature(ScaleConfig)
-    def configure_scale(self, *args, **kwargs):
-        """Configure the chart's scales by keyword args."""
-        return update_subtraits(self, ('config', 'scale'), *args, **kwargs)
-
-    @use_signature(FacetConfig)
-    def configure_facet(self, *args, **kwargs):
-        """Configure the chart's scales by keyword args."""
-        return update_subtraits(self, ('config', 'facet'), *args, **kwargs)
-
-    @use_signature(AxisConfig)
-    def configure_facet_axis(self, *args, **kwargs):
-        """Configure the facet's axes by keyword args."""
-        return update_subtraits(self, ('config', 'facet', 'axis'),
-                                *args, **kwargs)
-
-    @use_signature(CellConfig)
-    def configure_facet_cell(self, *args, **kwargs):
-        """Configure the facet's cells by keyword args."""
-        return update_subtraits(self, ('config', 'facet', 'cell'),
-                                *args, **kwargs)
-
-    @use_signature(FacetGridConfig)
-    def configure_facet_grid(self, *args, **kwargs):
-        """Configure the facet's grid by keyword args."""
-        return update_subtraits(self, ('config', 'facet', 'grid'),
-                                *args, **kwargs)
-
-    @use_signature(FacetScaleConfig)
-    def configure_facet_scale(self, *args, **kwargs):
-        """Configure the facet's scales by keyword args."""
-        return update_subtraits(self, ('config', 'facet', 'scale'),
-                                *args, **kwargs)
+         """Configure the chart's marks by keyword args."""
+         return update_subtraits(self, ('config', 'mark'), *args, **kwargs)
+    #
+    # @use_signature(ScaleConfig)
+    # def configure_scale(self, *args, **kwargs):
+    #     """Configure the chart's scales by keyword args."""
+    #     return update_subtraits(self, ('config', 'scale'), *args, **kwargs)
+    #
+    # @use_signature(FacetConfig)
+    # def configure_facet(self, *args, **kwargs):
+    #     """Configure the chart's scales by keyword args."""
+    #     return update_subtraits(self, ('config', 'facet'), *args, **kwargs)
+    #
+    # @use_signature(AxisConfig)
+    # def configure_facet_axis(self, *args, **kwargs):
+    #     """Configure the facet's axes by keyword args."""
+    #     return update_subtraits(self, ('config', 'facet', 'axis'),
+    #                             *args, **kwargs)
+    #
+    # @use_signature(CellConfig)
+    # def configure_facet_cell(self, *args, **kwargs):
+    #     """Configure the facet's cells by keyword args."""
+    #     return update_subtraits(self, ('config', 'facet', 'cell'),
+    #                             *args, **kwargs)
+    #
+    # @use_signature(FacetGridConfig)
+    # def configure_facet_grid(self, *args, **kwargs):
+    #     """Configure the facet's grid by keyword args."""
+    #     return update_subtraits(self, ('config', 'facet', 'grid'),
+    #                             *args, **kwargs)
+    #
+    # @use_signature(FacetScaleConfig)
+    # def configure_facet_scale(self, *args, **kwargs):
+    #     """Configure the facet's scales by keyword args."""
+    #     return update_subtraits(self, ('config', 'facet', 'scale'),
+    #                             *args, **kwargs)
 
     # Display related methods
 
@@ -536,7 +684,7 @@ class TopLevelMixin(object):
                 else:
                     self.transform_data(filter=filters)
 
-        # If self.data is a pd.DataFrame, check to see if data has too many rows. 
+        # If self.data is a pd.DataFrame, check to see if data has too many rows.
         if isinstance(self.data, pd.DataFrame):
             if len(self.data) > self.max_rows:
                 raise MaxRowsExceeded(
@@ -551,7 +699,7 @@ class TopLevelMixin(object):
 
     def _validate_columns(self):
         """Validate the columns in the encoding, but only if if the data is a ``DataFrame``.
-        
+
         This has to be called after the rest of the ``_finalize()`` logic, which fills in the
         shortcut field names and also processes the expressions for computed fields.
 
@@ -561,7 +709,7 @@ class TopLevelMixin(object):
         2. That the specified field name is present the column names of the ``DataFrame`` or
            computed field from transform expressions.
 
-        This logic only runs when the dataset is a ``DataFrame``. 
+        This logic only runs when the dataset is a ``DataFrame``.
         """
 
         # Only validate columns if the data is a pd.DataFrame.
@@ -599,14 +747,14 @@ class TopLevelMixin(object):
                 )
 
 
-class Chart(TopLevelMixin, schema.ExtendedUnitSpec):
+class Chart(TopLevelMixin, schema.TopLevelFacetedUnitSpec):
     _data = None
 
     # use specialized version of Encoding and Transform
     encoding = jst.JSONInstance(Encoding,
-                                help=schema.ExtendedUnitSpec.encoding.help)
+                                help=schema.TopLevelFacetedUnitSpec.encoding.help)
     transform = jst.JSONInstance(Transform,
-                                 help=schema.ExtendedUnitSpec.transform.help)
+                                 help=schema.TopLevelFacetedUnitSpec.transform.help)
     mark = schema.Mark(default_value='point', help="""The mark type.""")
     max_rows = T.Int(
         default_value=DEFAULT_MAX_ROWS,
@@ -752,14 +900,14 @@ class Chart(TopLevelMixin, schema.ExtendedUnitSpec):
         return cls.from_dict(spec)
 
 
-class LayeredChart(TopLevelMixin, schema.LayerSpec):
+class LayeredChart(TopLevelMixin, schema.TopLevelLayerSpec):
     _data = None
 
     # Use specialized version of Chart and Transform
     layers = jst.JSONArray(jst.JSONInstance(Chart),
-                           help=schema.LayerSpec.layers.help)
+                           help=schema.TopLevelLayerSpec.layer.help)
     transform = jst.JSONInstance(Transform,
-                                 help=schema.LayerSpec.transform.help)
+                                 help=schema.TopLevelLayerSpec.transform.help)
     max_rows = T.Int(
         default_value=DEFAULT_MAX_ROWS,
         help="Maximum number of rows in the dataset to accept."
@@ -812,16 +960,16 @@ class LayeredChart(TopLevelMixin, schema.LayerSpec):
         return self
 
 
-class FacetedChart(TopLevelMixin, schema.FacetSpec):
+class FacetedChart(TopLevelMixin, schema.TopLevelFacetedSpec):
     _data = None
 
     # Use specialized version of Facet, spec, and Transform
-    facet = jst.JSONInstance(Facet, help=schema.FacetSpec.facet.help)
+    facet = jst.JSONInstance(Facet, help=schema.TopLevelFacetedSpec.facet.help)
     spec = jst.JSONUnion([jst.JSONInstance(LayeredChart),
                           jst.JSONInstance(Chart)],
-                         help=schema.FacetSpec.spec.help)
+                         help=schema.TopLevelFacetedSpec.spec.help)
     transform = jst.JSONInstance(Transform,
-                                 help=schema.FacetSpec.transform.help)
+                                 help=schema.TopLevelFacetedSpec.transform.help)
     max_rows = T.Int(
         default_value=DEFAULT_MAX_ROWS,
         help="Maximum number of rows in the dataset to accept."
