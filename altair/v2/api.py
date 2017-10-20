@@ -433,7 +433,7 @@ class TopLevelMixin(object):
         spec : dict
             The JSON specification of the chart object.
         """
-        dct = super(TopLevelMixin, self.clone()).to_dict(data=data, validate_columns=validate_columns)
+        dct = super(TopLevelMixin, self).to_dict(data=data, validate_columns=validate_columns)
         dct['$schema'] = schema.vegalite_schema_url
         return dct
 

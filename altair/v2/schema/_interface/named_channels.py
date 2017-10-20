@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Auto-generated file: do not modify directly
-# - altair version info: v1.2.1-8-ge60bedc
-# - date: 2017-10-18 13:33:26
+# - altair version info: v1.2.1-26-g3c07e28
+# - date: 2017-10-20 13:30:35
 
 from . import channel_wrappers
 from .schema import NumberValueDef  # needed for channel collections import
