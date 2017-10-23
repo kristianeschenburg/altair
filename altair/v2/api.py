@@ -17,7 +17,7 @@ from ..utils._py3k_compat import string_types
 from .traitlet_utils import update_subtraits
 
 from .. import expr
-from . import schema
+from . import schema, transforms
 
 from .schema import jstraitlets as jst
 
@@ -294,9 +294,16 @@ def use_signature(Obj):
 
 
 #*************************************************************************
-# Transform wrapper
+# Transform wrappers
 # - allows filter trait to be an Expression and processes it properly
 #*************************************************************************
+# Transform types are:
+# - BinTransform
+# - CalculateTransform
+# - FilterTransform
+# - LookupTransform
+# - SummarizeTransform
+# - TimeUnitTransform
 
 # TODO: what is the new name of this?
 # class Transform(schema.Transform):
@@ -512,12 +519,23 @@ class TopLevelMixin(object):
         """Emit the Python code as a string required to created this Chart."""
         return super(TopLevelMixin, self).to_python(data=data)
 
+    def transform_data(self, filter=None, calculate=None):
+        """Set a FilterTransform or a CalculateTransform by keyword args"""
+        if self.transform is jst.undefined:
+            self.transform = []
+
+        if filter is not None:
+            if isinstance(filter, six.string_types):
+                filter = transforms.Filter(filter)
+            # Use assign rather than append for traitlets type checking
+            self.transform = self.transform + [transforms.Filter(filter)]
+        if calculate is not None:
+            if not isinstance(calculate, list):
+                calculate = [calculate]
+            self.transform = self.transform + calculate
+
     # TODO: add these methods for appropriate config options
     # # transform method
-    # @use_signature(schema.Transform)
-    # def transform_data(self, *args, **kwargs):
-    #     """Set the data transform by keyword args."""
-    #     return update_subtraits(self, 'transform', *args, **kwargs)
     #
     # # Configuration methods
     # @use_signature(schema.Config)
@@ -750,12 +768,10 @@ class TopLevelMixin(object):
 class Chart(TopLevelMixin, schema.TopLevelFacetedUnitSpec):
     _data = None
 
-    # use specialized version of Encoding and Transform
-    encoding = jst.JSONInstance(Encoding,
+    # use wrapped version of encoding
+    encoding = jst.JSONInstance(EncodingWithFacet,
                                 help=schema.TopLevelFacetedUnitSpec.encoding.help)
-    transform = jst.JSONInstance(Transform,
-                                 help=schema.TopLevelFacetedUnitSpec.transform.help)
-    mark = schema.Mark(default_value='point', help="""The mark type.""")
+
     max_rows = T.Int(
         default_value=DEFAULT_MAX_ROWS,
         help="Maximum number of rows in the dataset to accept."
@@ -764,6 +780,7 @@ class Chart(TopLevelMixin, schema.TopLevelFacetedUnitSpec):
         default_value=True,
         help="Raise FieldError if the data is a DataFrame and there are missing columns."
     )
+    _skip_on_export = ['data', '_data', 'max_rows', 'validate_columns']
 
     def clone(self):
         """
@@ -787,14 +804,12 @@ class Chart(TopLevelMixin, schema.TopLevelFacetedUnitSpec):
         else:
             raise TypeError('Expected DataFrame or altair.Data, got: {0}'.format(new))
 
-    _skip_on_export = ['data', '_data', 'max_rows', 'validate_columns']
-
     def __init__(self, data=None, **kwargs):
         super(Chart, self).__init__(**kwargs)
         self.data = data
 
     def __dir__(self):
-        return [m for m in dir(self.__class__) if m not in dir(T.HasTraits)]
+        return [m for m in dir(self.__class__) if m not in dir(jst.JSONHasTraits)]
 
     @use_signature(MarkConfig)
     def mark_area(self, *args, **kwargs):

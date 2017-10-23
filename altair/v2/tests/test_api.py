@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 from .. import *
-from .. import schema
+from .. import schema, transforms
 from ..schema import jstraitlets as jst
 from ..examples import iter_examples
 from ...utils.node import consistent_with_png, consistent_with_svg
@@ -189,7 +189,7 @@ def test_configure_facet_scale_update():
 
 def test_transform_update():
     # Test that transform updates rather than overwrites
-    formula = Formula(field='gender', expr='datum.sex == 2 ? "Female":"Male"')
+    formula = transforms.Calculate(field='gender', expr='datum.sex == 2 ? "Female":"Male"')
     chart1 = Chart().transform_data(filter='datum.year==2000')\
                     .transform_data(calculate=[formula])
 
@@ -458,7 +458,7 @@ def test_chart_serve():
 
 
 def test_formula_expression():
-     formula = Formula('blah', expr.log(expr.df.value) // expr.LN10)
+     formula = transforms.Calculate('blah', expr.log(expr.df.value) // expr.LN10)
      assert formula.field == 'blah'
      assert formula.expr == '(log(datum.value)/LN10)'
 
@@ -474,7 +474,7 @@ def test_df_formula():
         x='x',
         y='y'
     ).transform_data(
-        calculate=[Formula('y', 'sin(((2*PI)*datum.x))')]
+        calculate=[transforms.Calculate('y', 'sin(((2*PI)*datum.x))')]
     )
 
     # create a formula with the dataframe interface
@@ -613,8 +613,8 @@ def test_validate_spec():
 
     # Make sure we catch encoded fields not in the data
     c = make_chart()
-    c.encode(x='x', y='y', color='z')
-    c.encode(color='z')
+    c.encode(x='x', y='y')
+    c.encode(color='z:N')
     assert isinstance(c.to_dict(), dict)
     assert isinstance(c.to_dict(validate_columns=False), dict)
     with pytest.raises(FieldError):
@@ -623,14 +623,14 @@ def test_validate_spec():
     assert isinstance(c.to_dict(validate_columns=True), dict)
 
     c = make_chart()
-    c.encode(x='x', y='count(*)')
+    c.encode(x='x', y='count(*):Q')
     assert isinstance(c.to_dict(validate_columns=True), dict)
 
     # Make sure we can resolve computed fields
     c = make_chart()
-    c.encode(x='x', y='y', color='z')
+    c.encode(x='x', y='y')
     c.encode(color='z')
     c.transform_data(
-        calculate=[Formula('z', 'sin(((2*PI)*datum.x))')]
+        calculate=[transforms.Calculate('z', 'sin(((2*PI)*datum.x))')]
     )
     assert isinstance(c.to_dict(), dict)
