@@ -169,7 +169,7 @@ class SchemaInfo(object):
         if self.is_empty():
             return 'any'
         elif self.is_reference():
-            return self.refname
+            return get_valid_identifier(self.refname)
         elif self.is_anyOf():
             return 'anyOf({0})'.format(', '.join(s.short_description
                                                  for s in self.anyOf))
@@ -195,13 +195,20 @@ class SchemaInfo(object):
 
     @property
     def medium_description(self):
-        # TODO
-        return 'A schema of type <type>'
+        return self.description
 
     @property
     def long_description(self):
-        # TODO
-        return 'Long description including arguments and their types'
+        if self.is_enum():
+            return "One of [{0}]".format(', '.join('{0!r}'.format(val) for val in self.enum))
+        elif self.is_anyOf():
+            return "An object that matches one or more of [{0}]".format(', '.join(val.short_description for val in self.anyOf))
+        elif self.is_allOf():
+            return "An object that matches all of [{0}]".format(', '.join(val.short_description for val in self.allOf))
+        elif self.is_oneOf():
+            return "An object that matches exactly one of [{0}]".format(', '.join(val.short_description for val in self.oneOf))
+        else:
+            return self.description
 
     @property
     def properties(self):

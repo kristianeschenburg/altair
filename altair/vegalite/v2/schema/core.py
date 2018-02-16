@@ -1,5 +1,5 @@
 # The contents of this file are automatically generated
-# at time 2018-02-15 13:27:12
+# at time 2018-02-16 13:04:51
 
 from altair.utils.schemapi import SchemaBase, Undefined
 
@@ -12,9 +12,11 @@ def load_schema():
     with open(os.path.join(directory, '..', 'vega-lite-schema.json')) as f:
         return json.load(f)
 
-
 class Root(SchemaBase):
-    """Root schema wrapper"""
+    """Root schema wrapper
+    
+    An object that matches one or more of [TopLevelFacetedUnitSpec, TopLevelLayerSpec, TopLevelFacetSpec, TopLevelRepeatSpec, TopLevelVConcatSpec, TopLevelHConcatSpec]
+    """
     _schema = load_schema()
     _rootschema = _schema
 
@@ -22,9 +24,11 @@ class Root(SchemaBase):
         super(Root, self).__init__(*args, **kwds)
     
 
-
 class Aggregate(SchemaBase):
-    """Aggregate schema wrapper"""
+    """Aggregate schema wrapper
+    
+    One of ['argmax', 'argmin', 'average', 'count', 'distinct', 'max', 'mean', 'median', 'min', 'missing', 'q1', 'q3', 'ci0', 'ci1', 'stdev', 'stdevp', 'sum', 'valid', 'values', 'variance', 'variancep']
+    """
     _schema = {'$ref': '#/definitions/Aggregate'}
     _rootschema = Root._schema
 
@@ -32,16 +36,17 @@ class Aggregate(SchemaBase):
         super(Aggregate, self).__init__(*args)
     
 
-
 class AggregateOp(SchemaBase):
-    """AggregateOp schema wrapper"""
+    """AggregateOp schema wrapper
+    
+    One of ['argmax', 'argmin', 'average', 'count', 'distinct', 'max', 'mean', 'median', 'min', 'missing', 'q1', 'q3', 'ci0', 'ci1', 'stdev', 'stdevp', 'sum', 'valid', 'values', 'variance', 'variancep']
+    """
     _schema = {'$ref': '#/definitions/AggregateOp'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(AggregateOp, self).__init__(*args)
     
-
 
 class AggregateTransform(SchemaBase):
     """AggregateTransform schema wrapper
@@ -59,7 +64,6 @@ class AggregateTransform(SchemaBase):
     def __init__(self, aggregate=Undefined, groupby=Undefined, **kwds):
         super(AggregateTransform, self).__init__(aggregate=aggregate, groupby=groupby, **kwds)
     
-
 
 class AggregatedFieldDef(SchemaBase):
     """AggregatedFieldDef schema wrapper
@@ -80,9 +84,11 @@ class AggregatedFieldDef(SchemaBase):
         super(AggregatedFieldDef, self).__init__(field=field, op=op, **kwds)
     
 
-
 class Anchor(SchemaBase):
-    """Anchor schema wrapper"""
+    """Anchor schema wrapper
+    
+    One of ['start', 'middle', 'end']
+    """
     _schema = {'$ref': '#/definitions/Anchor'}
     _rootschema = Root._schema
 
@@ -90,16 +96,17 @@ class Anchor(SchemaBase):
         super(Anchor, self).__init__(*args)
     
 
-
 class AnyMark(SchemaBase):
-    """AnyMark schema wrapper"""
+    """AnyMark schema wrapper
+    
+    An object that matches one or more of [Mark, MarkDef]
+    """
     _schema = {'$ref': '#/definitions/AnyMark'}
     _rootschema = Root._schema
 
     def __init__(self, *args, **kwds):
         super(AnyMark, self).__init__(*args, **kwds)
     
-
 
 class AutoSizeParams(SchemaBase):
     """AutoSizeParams schema wrapper
@@ -120,16 +127,17 @@ class AutoSizeParams(SchemaBase):
         super(AutoSizeParams, self).__init__(contains=contains, resize=resize, type=type, **kwds)
     
 
-
 class AutosizeType(SchemaBase):
-    """AutosizeType schema wrapper"""
+    """AutosizeType schema wrapper
+    
+    One of ['pad', 'fit', 'none']
+    """
     _schema = {'$ref': '#/definitions/AutosizeType'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(AutosizeType, self).__init__(*args)
     
-
 
 class Axis(SchemaBase):
     """Axis schema wrapper
@@ -187,7 +195,6 @@ class Axis(SchemaBase):
     def __init__(self, domain=Undefined, format=Undefined, grid=Undefined, labelAngle=Undefined, labelBound=Undefined, labelFlush=Undefined, labelOverlap=Undefined, labelPadding=Undefined, labels=Undefined, maxExtent=Undefined, minExtent=Undefined, offset=Undefined, orient=Undefined, position=Undefined, tickCount=Undefined, tickSize=Undefined, ticks=Undefined, title=Undefined, titleMaxLength=Undefined, titlePadding=Undefined, values=Undefined, zindex=Undefined, **kwds):
         super(Axis, self).__init__(domain=domain, format=format, grid=grid, labelAngle=labelAngle, labelBound=labelBound, labelFlush=labelFlush, labelOverlap=labelOverlap, labelPadding=labelPadding, labels=labels, maxExtent=maxExtent, minExtent=minExtent, offset=offset, orient=orient, position=position, tickCount=tickCount, tickSize=tickSize, ticks=ticks, title=title, titleMaxLength=titleMaxLength, titlePadding=titlePadding, values=values, zindex=zindex, **kwds)
     
-
 
 class AxisConfig(SchemaBase):
     """AxisConfig schema wrapper
@@ -280,16 +287,17 @@ class AxisConfig(SchemaBase):
         super(AxisConfig, self).__init__(bandPosition=bandPosition, domain=domain, domainColor=domainColor, domainWidth=domainWidth, grid=grid, gridColor=gridColor, gridDash=gridDash, gridOpacity=gridOpacity, gridWidth=gridWidth, labelAngle=labelAngle, labelBound=labelBound, labelColor=labelColor, labelFlush=labelFlush, labelFont=labelFont, labelFontSize=labelFontSize, labelLimit=labelLimit, labelOverlap=labelOverlap, labelPadding=labelPadding, labels=labels, maxExtent=maxExtent, minExtent=minExtent, shortTimeLabels=shortTimeLabels, tickColor=tickColor, tickRound=tickRound, tickSize=tickSize, tickWidth=tickWidth, ticks=ticks, titleAlign=titleAlign, titleAngle=titleAngle, titleBaseline=titleBaseline, titleColor=titleColor, titleFont=titleFont, titleFontSize=titleFontSize, titleFontWeight=titleFontWeight, titleLimit=titleLimit, titleMaxLength=titleMaxLength, titlePadding=titlePadding, titleX=titleX, titleY=titleY, **kwds)
     
 
-
 class AxisOrient(SchemaBase):
-    """AxisOrient schema wrapper"""
+    """AxisOrient schema wrapper
+    
+    One of ['top', 'right', 'left', 'bottom']
+    """
     _schema = {'$ref': '#/definitions/AxisOrient'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(AxisOrient, self).__init__(*args)
     
-
 
 class AxisResolveMap(SchemaBase):
     """AxisResolveMap schema wrapper
@@ -307,7 +315,6 @@ class AxisResolveMap(SchemaBase):
     def __init__(self, x=Undefined, y=Undefined, **kwds):
         super(AxisResolveMap, self).__init__(x=x, y=y, **kwds)
     
-
 
 class BarConfig(SchemaBase):
     """BarConfig schema wrapper
@@ -388,16 +395,17 @@ class BarConfig(SchemaBase):
         super(BarConfig, self).__init__(align=align, angle=angle, baseline=baseline, binSpacing=binSpacing, color=color, continuousBandSize=continuousBandSize, cursor=cursor, discreteBandSize=discreteBandSize, dx=dx, dy=dy, fill=fill, fillOpacity=fillOpacity, filled=filled, font=font, fontSize=fontSize, fontStyle=fontStyle, fontWeight=fontWeight, href=href, interpolate=interpolate, limit=limit, opacity=opacity, orient=orient, radius=radius, shape=shape, size=size, stroke=stroke, strokeDash=strokeDash, strokeDashOffset=strokeDashOffset, strokeOpacity=strokeOpacity, strokeWidth=strokeWidth, tension=tension, text=text, theta=theta, **kwds)
     
 
-
 class BasicType(SchemaBase):
-    """BasicType schema wrapper"""
+    """BasicType schema wrapper
+    
+    One of ['quantitative', 'ordinal', 'temporal', 'nominal']
+    """
     _schema = {'$ref': '#/definitions/BasicType'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(BasicType, self).__init__(*args)
     
-
 
 class BinParams(SchemaBase):
     """BinParams schema wrapper
@@ -430,7 +438,6 @@ class BinParams(SchemaBase):
         super(BinParams, self).__init__(base=base, divide=divide, extent=extent, maxbins=maxbins, minstep=minstep, nice=nice, step=step, steps=steps, **kwds)
     
 
-
 class BinTransform(SchemaBase):
     """BinTransform schema wrapper
     
@@ -449,7 +456,6 @@ class BinTransform(SchemaBase):
     def __init__(self, bin=Undefined, field=Undefined, **kwds):
         super(BinTransform, self).__init__(bin=bin, field=field, **kwds)
     
-
 
 class BrushConfig(SchemaBase):
     """BrushConfig schema wrapper
@@ -478,7 +484,6 @@ class BrushConfig(SchemaBase):
         super(BrushConfig, self).__init__(fill=fill, fillOpacity=fillOpacity, stroke=stroke, strokeDash=strokeDash, strokeDashOffset=strokeDashOffset, strokeOpacity=strokeOpacity, strokeWidth=strokeWidth, **kwds)
     
 
-
 class CalculateTransform(SchemaBase):
     """CalculateTransform schema wrapper
     
@@ -495,7 +500,6 @@ class CalculateTransform(SchemaBase):
     def __init__(self, calculate=Undefined, **kwds):
         super(CalculateTransform, self).__init__(calculate=calculate, **kwds)
     
-
 
 class CompositeUnitSpec(SchemaBase):
     """CompositeUnitSpec schema wrapper
@@ -532,9 +536,11 @@ class CompositeUnitSpec(SchemaBase):
         super(CompositeUnitSpec, self).__init__(mark=mark, data=data, description=description, encoding=encoding, height=height, name=name, projection=projection, selection=selection, title=title, transform=transform, width=width, **kwds)
     
 
-
 class ConditionalFieldDef(SchemaBase):
-    """ConditionalFieldDef schema wrapper"""
+    """ConditionalFieldDef schema wrapper
+    
+    An object that matches one or more of [ConditionalPredicateFieldDef, ConditionalSelectionFieldDef]
+    """
     _schema = {'$ref': '#/definitions/Conditional<FieldDef>'}
     _rootschema = Root._schema
 
@@ -542,9 +548,11 @@ class ConditionalFieldDef(SchemaBase):
         super(ConditionalFieldDef, self).__init__(*args, **kwds)
     
 
-
 class ConditionalMarkPropFieldDef(SchemaBase):
-    """ConditionalMarkPropFieldDef schema wrapper"""
+    """ConditionalMarkPropFieldDef schema wrapper
+    
+    An object that matches one or more of [ConditionalPredicateMarkPropFieldDef, ConditionalSelectionMarkPropFieldDef]
+    """
     _schema = {'$ref': '#/definitions/Conditional<MarkPropFieldDef>'}
     _rootschema = Root._schema
 
@@ -552,9 +560,11 @@ class ConditionalMarkPropFieldDef(SchemaBase):
         super(ConditionalMarkPropFieldDef, self).__init__(*args, **kwds)
     
 
-
 class ConditionalTextFieldDef(SchemaBase):
-    """ConditionalTextFieldDef schema wrapper"""
+    """ConditionalTextFieldDef schema wrapper
+    
+    An object that matches one or more of [ConditionalPredicateTextFieldDef, ConditionalSelectionTextFieldDef]
+    """
     _schema = {'$ref': '#/definitions/Conditional<TextFieldDef>'}
     _rootschema = Root._schema
 
@@ -562,16 +572,17 @@ class ConditionalTextFieldDef(SchemaBase):
         super(ConditionalTextFieldDef, self).__init__(*args, **kwds)
     
 
-
 class ConditionalValueDef(SchemaBase):
-    """ConditionalValueDef schema wrapper"""
+    """ConditionalValueDef schema wrapper
+    
+    An object that matches one or more of [ConditionalPredicateValueDef, ConditionalSelectionValueDef]
+    """
     _schema = {'$ref': '#/definitions/Conditional<ValueDef>'}
     _rootschema = Root._schema
 
     def __init__(self, *args, **kwds):
         super(ConditionalValueDef, self).__init__(*args, **kwds)
     
-
 
 class ConditionalPredicateFieldDef(SchemaBase):
     """ConditionalPredicateFieldDef schema wrapper
@@ -584,7 +595,7 @@ class ConditionalPredicateFieldDef(SchemaBase):
         A flag for binning a `quantitative` field, or [an object defining binning parameters](https://vega.github.io/vega-lite/docs/bin.html#params). If `true`, default [binning parameters](https://vega.github.io/vega-lite/docs/bin.html) will be applied.  __Default value:__ `false`
     field : anyOf(string, RepeatRef)
         __Required.__ A string defining the name of the field from which to pull a data value or an object defining iterated values from the [`repeat`](https://vega.github.io/vega-lite/docs/repeat.html) operator.  __Note:__ Dots (`.`) and brackets (`[` and `]`) can be used to access nested objects (e.g., `"field": "foo.bar"` and `"field": "foo['bar']"`). If field names contain dots or brackets but are not nested, you can use `\\` to escape dots and brackets (e.g., `"a\\.b"` and `"a\\[0\\]"`). See more details about escaping in the [field documentation](https://vega.github.io/vega-lite/docs/field.html).  __Note:__ `field` is not required if `aggregate` is `count`.
-    test : LogicalOperand<Predicate>
+    test : LogicalOperandPredicate
         
     timeUnit : TimeUnit
         Time unit (e.g., `year`, `yearmonth`, `month`, `hours`) for a temporal field. or [a temporal field that gets casted as ordinal](https://vega.github.io/vega-lite/docs/type.html#cast).  __Default value:__ `undefined` (None)
@@ -597,7 +608,6 @@ class ConditionalPredicateFieldDef(SchemaBase):
     def __init__(self, test=Undefined, type=Undefined, aggregate=Undefined, bin=Undefined, field=Undefined, timeUnit=Undefined, **kwds):
         super(ConditionalPredicateFieldDef, self).__init__(test=test, type=type, aggregate=aggregate, bin=bin, field=field, timeUnit=timeUnit, **kwds)
     
-
 
 class ConditionalPredicateMarkPropFieldDef(SchemaBase):
     """ConditionalPredicateMarkPropFieldDef schema wrapper
@@ -616,7 +626,7 @@ class ConditionalPredicateMarkPropFieldDef(SchemaBase):
         An object defining properties of the channel's scale, which is the function that transforms values in the data domain (numbers, dates, strings, etc) to visual values (pixels, colors, sizes) of the encoding channels.  __Default value:__ If undefined, default [scale properties](https://vega.github.io/vega-lite/docs/scale.html) are applied.
     sort : anyOf(SortOrder, SortField, None)
         Sort order for the encoded field. Supported `sort` values include `"ascending"`, `"descending"` and `null` (no sorting). For fields with discrete domains, `sort` can also be a [sort field definition object](https://vega.github.io/vega-lite/docs/sort.html#sort-field).  __Default value:__ `"ascending"`
-    test : LogicalOperand<Predicate>
+    test : LogicalOperandPredicate
         
     timeUnit : TimeUnit
         Time unit (e.g., `year`, `yearmonth`, `month`, `hours`) for a temporal field. or [a temporal field that gets casted as ordinal](https://vega.github.io/vega-lite/docs/type.html#cast).  __Default value:__ `undefined` (None)
@@ -629,7 +639,6 @@ class ConditionalPredicateMarkPropFieldDef(SchemaBase):
     def __init__(self, test=Undefined, type=Undefined, aggregate=Undefined, bin=Undefined, field=Undefined, legend=Undefined, scale=Undefined, sort=Undefined, timeUnit=Undefined, **kwds):
         super(ConditionalPredicateMarkPropFieldDef, self).__init__(test=test, type=type, aggregate=aggregate, bin=bin, field=field, legend=legend, scale=scale, sort=sort, timeUnit=timeUnit, **kwds)
     
-
 
 class ConditionalPredicateTextFieldDef(SchemaBase):
     """ConditionalPredicateTextFieldDef schema wrapper
@@ -644,7 +653,7 @@ class ConditionalPredicateTextFieldDef(SchemaBase):
         __Required.__ A string defining the name of the field from which to pull a data value or an object defining iterated values from the [`repeat`](https://vega.github.io/vega-lite/docs/repeat.html) operator.  __Note:__ Dots (`.`) and brackets (`[` and `]`) can be used to access nested objects (e.g., `"field": "foo.bar"` and `"field": "foo['bar']"`). If field names contain dots or brackets but are not nested, you can use `\\` to escape dots and brackets (e.g., `"a\\.b"` and `"a\\[0\\]"`). See more details about escaping in the [field documentation](https://vega.github.io/vega-lite/docs/field.html).  __Note:__ `field` is not required if `aggregate` is `count`.
     format : string
         The [formatting pattern](https://vega.github.io/vega-lite/docs/format.html) for a text field. If not defined, this will be determined automatically.
-    test : LogicalOperand<Predicate>
+    test : LogicalOperandPredicate
         
     timeUnit : TimeUnit
         Time unit (e.g., `year`, `yearmonth`, `month`, `hours`) for a temporal field. or [a temporal field that gets casted as ordinal](https://vega.github.io/vega-lite/docs/type.html#cast).  __Default value:__ `undefined` (None)
@@ -658,13 +667,12 @@ class ConditionalPredicateTextFieldDef(SchemaBase):
         super(ConditionalPredicateTextFieldDef, self).__init__(test=test, type=type, aggregate=aggregate, bin=bin, field=field, format=format, timeUnit=timeUnit, **kwds)
     
 
-
 class ConditionalPredicateValueDef(SchemaBase):
     """ConditionalPredicateValueDef schema wrapper
     
     Attributes
     ----------
-    test : LogicalOperand<Predicate>
+    test : LogicalOperandPredicate
         
     value : anyOf(float, string, boolean)
         A constant value in visual domain (e.g., `"red"` / "#0099ff" for color, values between `0` to `1` for opacity).
@@ -675,7 +683,6 @@ class ConditionalPredicateValueDef(SchemaBase):
     def __init__(self, test=Undefined, value=Undefined, **kwds):
         super(ConditionalPredicateValueDef, self).__init__(test=test, value=value, **kwds)
     
-
 
 class ConditionalSelectionFieldDef(SchemaBase):
     """ConditionalSelectionFieldDef schema wrapper
@@ -701,7 +708,6 @@ class ConditionalSelectionFieldDef(SchemaBase):
     def __init__(self, selection=Undefined, type=Undefined, aggregate=Undefined, bin=Undefined, field=Undefined, timeUnit=Undefined, **kwds):
         super(ConditionalSelectionFieldDef, self).__init__(selection=selection, type=type, aggregate=aggregate, bin=bin, field=field, timeUnit=timeUnit, **kwds)
     
-
 
 class ConditionalSelectionMarkPropFieldDef(SchemaBase):
     """ConditionalSelectionMarkPropFieldDef schema wrapper
@@ -734,7 +740,6 @@ class ConditionalSelectionMarkPropFieldDef(SchemaBase):
         super(ConditionalSelectionMarkPropFieldDef, self).__init__(selection=selection, type=type, aggregate=aggregate, bin=bin, field=field, legend=legend, scale=scale, sort=sort, timeUnit=timeUnit, **kwds)
     
 
-
 class ConditionalSelectionTextFieldDef(SchemaBase):
     """ConditionalSelectionTextFieldDef schema wrapper
     
@@ -762,7 +767,6 @@ class ConditionalSelectionTextFieldDef(SchemaBase):
         super(ConditionalSelectionTextFieldDef, self).__init__(selection=selection, type=type, aggregate=aggregate, bin=bin, field=field, format=format, timeUnit=timeUnit, **kwds)
     
 
-
 class ConditionalSelectionValueDef(SchemaBase):
     """ConditionalSelectionValueDef schema wrapper
     
@@ -779,7 +783,6 @@ class ConditionalSelectionValueDef(SchemaBase):
     def __init__(self, selection=Undefined, value=Undefined, **kwds):
         super(ConditionalSelectionValueDef, self).__init__(selection=selection, value=value, **kwds)
     
-
 
 class Config(SchemaBase):
     """Config schema wrapper
@@ -868,7 +871,6 @@ class Config(SchemaBase):
         super(Config, self).__init__(area=area, autosize=autosize, axis=axis, axisBand=axisBand, axisBottom=axisBottom, axisLeft=axisLeft, axisRight=axisRight, axisTop=axisTop, axisX=axisX, axisY=axisY, background=background, bar=bar, circle=circle, countTitle=countTitle, fieldTitle=fieldTitle, geoshape=geoshape, invalidValues=invalidValues, legend=legend, line=line, mark=mark, numberFormat=numberFormat, padding=padding, point=point, projection=projection, range=range, rect=rect, rule=rule, scale=scale, selection=selection, square=square, stack=stack, style=style, text=text, tick=tick, timeFormat=timeFormat, title=title, view=view, **kwds)
     
 
-
 class CsvDataFormat(SchemaBase):
     """CsvDataFormat schema wrapper
     
@@ -886,9 +888,11 @@ class CsvDataFormat(SchemaBase):
         super(CsvDataFormat, self).__init__(parse=parse, type=type, **kwds)
     
 
-
 class Data(SchemaBase):
-    """Data schema wrapper"""
+    """Data schema wrapper
+    
+    An object that matches one or more of [UrlData, InlineData, NamedData]
+    """
     _schema = {'$ref': '#/definitions/Data'}
     _rootschema = Root._schema
 
@@ -896,9 +900,11 @@ class Data(SchemaBase):
         super(Data, self).__init__(*args, **kwds)
     
 
-
 class DataFormat(SchemaBase):
-    """DataFormat schema wrapper"""
+    """DataFormat schema wrapper
+    
+    An object that matches one or more of [CsvDataFormat, JsonDataFormat, TopoDataFormat]
+    """
     _schema = {'$ref': '#/definitions/DataFormat'}
     _rootschema = Root._schema
 
@@ -906,14 +912,10 @@ class DataFormat(SchemaBase):
         super(DataFormat, self).__init__(*args, **kwds)
     
 
-
 class DateTime(SchemaBase):
     """DateTime schema wrapper
     
-    Object for defining datetime in Vega-Lite Filter.
-If both month and quarter are provided, month has higher precedence.
-`day` cannot be combined with other date.
-We accept string for month and day names.
+    Object for defining datetime in Vega-Lite Filter. If both month and quarter are provided, month has higher precedence. `day` cannot be combined with other date. We accept string for month and day names.
     
     Attributes
     ----------
@@ -945,7 +947,6 @@ We accept string for month and day names.
         super(DateTime, self).__init__(date=date, day=day, hours=hours, milliseconds=milliseconds, minutes=minutes, month=month, quarter=quarter, seconds=seconds, utc=utc, year=year, **kwds)
     
 
-
 class Day(SchemaBase):
     """Day schema wrapper"""
     _schema = {'$ref': '#/definitions/Day'}
@@ -954,7 +955,6 @@ class Day(SchemaBase):
     def __init__(self, *args):
         super(Day, self).__init__(*args)
     
-
 
 class Encoding(SchemaBase):
     """Encoding schema wrapper
@@ -994,7 +994,6 @@ class Encoding(SchemaBase):
     def __init__(self, color=Undefined, detail=Undefined, href=Undefined, opacity=Undefined, order=Undefined, shape=Undefined, size=Undefined, text=Undefined, tooltip=Undefined, x=Undefined, x2=Undefined, y=Undefined, y2=Undefined, **kwds):
         super(Encoding, self).__init__(color=color, detail=detail, href=href, opacity=opacity, order=order, shape=shape, size=size, text=text, tooltip=tooltip, x=x, x2=x2, y=y, y2=y2, **kwds)
     
-
 
 class EncodingWithFacet(SchemaBase):
     """EncodingWithFacet schema wrapper
@@ -1039,7 +1038,6 @@ class EncodingWithFacet(SchemaBase):
         super(EncodingWithFacet, self).__init__(color=color, column=column, detail=detail, href=href, opacity=opacity, order=order, row=row, shape=shape, size=size, text=text, tooltip=tooltip, x=x, x2=x2, y=y, y2=y2, **kwds)
     
 
-
 class FacetFieldDef(SchemaBase):
     """FacetFieldDef schema wrapper
     
@@ -1067,7 +1065,6 @@ class FacetFieldDef(SchemaBase):
         super(FacetFieldDef, self).__init__(type=type, aggregate=aggregate, bin=bin, field=field, header=header, sort=sort, timeUnit=timeUnit, **kwds)
     
 
-
 class FacetMapping(SchemaBase):
     """FacetMapping schema wrapper
     
@@ -1084,7 +1081,6 @@ class FacetMapping(SchemaBase):
     def __init__(self, column=Undefined, row=Undefined, **kwds):
         super(FacetMapping, self).__init__(column=column, row=row, **kwds)
     
-
 
 class FieldDef(SchemaBase):
     """FieldDef schema wrapper
@@ -1111,16 +1107,10 @@ class FieldDef(SchemaBase):
         super(FieldDef, self).__init__(type=type, aggregate=aggregate, bin=bin, field=field, timeUnit=timeUnit, **kwds)
     
 
-
 class FieldDefWithCondition(SchemaBase):
     """FieldDefWithCondition schema wrapper
     
-    A FieldDef with Condition<ValueDef>
-{
-   condition: {value: ...},
-   field: ...,
-   ...
-}
+    A FieldDef with Condition<ValueDef> {    condition: {value: ...},    field: ...,    ... }
     
     Attributes
     ----------
@@ -1128,7 +1118,7 @@ class FieldDefWithCondition(SchemaBase):
         Aggregation function for the field (e.g., `mean`, `sum`, `median`, `min`, `max`, `count`).  __Default value:__ `undefined` (None)
     bin : anyOf(boolean, BinParams)
         A flag for binning a `quantitative` field, or [an object defining binning parameters](https://vega.github.io/vega-lite/docs/bin.html#params). If `true`, default [binning parameters](https://vega.github.io/vega-lite/docs/bin.html) will be applied.  __Default value:__ `false`
-    condition : anyOf(Conditional<ValueDef>, list)
+    condition : anyOf(ConditionalValueDef, list)
         One or more value definition(s) with a selection predicate.  __Note:__ A field definition's `condition` property can only contain [value definitions](https://vega.github.io/vega-lite/docs/encoding.html#value-def) since Vega-Lite only allows at most one encoded field per encoding channel.
     field : anyOf(string, RepeatRef)
         __Required.__ A string defining the name of the field from which to pull a data value or an object defining iterated values from the [`repeat`](https://vega.github.io/vega-lite/docs/repeat.html) operator.  __Note:__ Dots (`.`) and brackets (`[` and `]`) can be used to access nested objects (e.g., `"field": "foo.bar"` and `"field": "foo['bar']"`). If field names contain dots or brackets but are not nested, you can use `\\` to escape dots and brackets (e.g., `"a\\.b"` and `"a\\[0\\]"`). See more details about escaping in the [field documentation](https://vega.github.io/vega-lite/docs/field.html).  __Note:__ `field` is not required if `aggregate` is `count`.
@@ -1144,16 +1134,10 @@ class FieldDefWithCondition(SchemaBase):
         super(FieldDefWithCondition, self).__init__(type=type, aggregate=aggregate, bin=bin, condition=condition, field=field, timeUnit=timeUnit, **kwds)
     
 
-
 class MarkPropFieldDefWithCondition(SchemaBase):
     """MarkPropFieldDefWithCondition schema wrapper
     
-    A FieldDef with Condition<ValueDef>
-{
-   condition: {value: ...},
-   field: ...,
-   ...
-}
+    A FieldDef with Condition<ValueDef> {    condition: {value: ...},    field: ...,    ... }
     
     Attributes
     ----------
@@ -1161,7 +1145,7 @@ class MarkPropFieldDefWithCondition(SchemaBase):
         Aggregation function for the field (e.g., `mean`, `sum`, `median`, `min`, `max`, `count`).  __Default value:__ `undefined` (None)
     bin : anyOf(boolean, BinParams)
         A flag for binning a `quantitative` field, or [an object defining binning parameters](https://vega.github.io/vega-lite/docs/bin.html#params). If `true`, default [binning parameters](https://vega.github.io/vega-lite/docs/bin.html) will be applied.  __Default value:__ `false`
-    condition : anyOf(Conditional<ValueDef>, list)
+    condition : anyOf(ConditionalValueDef, list)
         One or more value definition(s) with a selection predicate.  __Note:__ A field definition's `condition` property can only contain [value definitions](https://vega.github.io/vega-lite/docs/encoding.html#value-def) since Vega-Lite only allows at most one encoded field per encoding channel.
     field : anyOf(string, RepeatRef)
         __Required.__ A string defining the name of the field from which to pull a data value or an object defining iterated values from the [`repeat`](https://vega.github.io/vega-lite/docs/repeat.html) operator.  __Note:__ Dots (`.`) and brackets (`[` and `]`) can be used to access nested objects (e.g., `"field": "foo.bar"` and `"field": "foo['bar']"`). If field names contain dots or brackets but are not nested, you can use `\\` to escape dots and brackets (e.g., `"a\\.b"` and `"a\\[0\\]"`). See more details about escaping in the [field documentation](https://vega.github.io/vega-lite/docs/field.html).  __Note:__ `field` is not required if `aggregate` is `count`.
@@ -1183,16 +1167,10 @@ class MarkPropFieldDefWithCondition(SchemaBase):
         super(MarkPropFieldDefWithCondition, self).__init__(type=type, aggregate=aggregate, bin=bin, condition=condition, field=field, legend=legend, scale=scale, sort=sort, timeUnit=timeUnit, **kwds)
     
 
-
 class TextFieldDefWithCondition(SchemaBase):
     """TextFieldDefWithCondition schema wrapper
     
-    A FieldDef with Condition<ValueDef>
-{
-   condition: {value: ...},
-   field: ...,
-   ...
-}
+    A FieldDef with Condition<ValueDef> {    condition: {value: ...},    field: ...,    ... }
     
     Attributes
     ----------
@@ -1200,7 +1178,7 @@ class TextFieldDefWithCondition(SchemaBase):
         Aggregation function for the field (e.g., `mean`, `sum`, `median`, `min`, `max`, `count`).  __Default value:__ `undefined` (None)
     bin : anyOf(boolean, BinParams)
         A flag for binning a `quantitative` field, or [an object defining binning parameters](https://vega.github.io/vega-lite/docs/bin.html#params). If `true`, default [binning parameters](https://vega.github.io/vega-lite/docs/bin.html) will be applied.  __Default value:__ `false`
-    condition : anyOf(Conditional<ValueDef>, list)
+    condition : anyOf(ConditionalValueDef, list)
         One or more value definition(s) with a selection predicate.  __Note:__ A field definition's `condition` property can only contain [value definitions](https://vega.github.io/vega-lite/docs/encoding.html#value-def) since Vega-Lite only allows at most one encoded field per encoding channel.
     field : anyOf(string, RepeatRef)
         __Required.__ A string defining the name of the field from which to pull a data value or an object defining iterated values from the [`repeat`](https://vega.github.io/vega-lite/docs/repeat.html) operator.  __Note:__ Dots (`.`) and brackets (`[` and `]`) can be used to access nested objects (e.g., `"field": "foo.bar"` and `"field": "foo['bar']"`). If field names contain dots or brackets but are not nested, you can use `\\` to escape dots and brackets (e.g., `"a\\.b"` and `"a\\[0\\]"`). See more details about escaping in the [field documentation](https://vega.github.io/vega-lite/docs/field.html).  __Note:__ `field` is not required if `aggregate` is `count`.
@@ -1217,7 +1195,6 @@ class TextFieldDefWithCondition(SchemaBase):
     def __init__(self, type=Undefined, aggregate=Undefined, bin=Undefined, condition=Undefined, field=Undefined, format=Undefined, timeUnit=Undefined, **kwds):
         super(TextFieldDefWithCondition, self).__init__(type=type, aggregate=aggregate, bin=bin, condition=condition, field=field, format=format, timeUnit=timeUnit, **kwds)
     
-
 
 class FieldEqualPredicate(SchemaBase):
     """FieldEqualPredicate schema wrapper
@@ -1238,7 +1215,6 @@ class FieldEqualPredicate(SchemaBase):
         super(FieldEqualPredicate, self).__init__(equal=equal, field=field, timeUnit=timeUnit, **kwds)
     
 
-
 class FieldOneOfPredicate(SchemaBase):
     """FieldOneOfPredicate schema wrapper
     
@@ -1257,7 +1233,6 @@ class FieldOneOfPredicate(SchemaBase):
     def __init__(self, field=Undefined, oneOf=Undefined, timeUnit=Undefined, **kwds):
         super(FieldOneOfPredicate, self).__init__(field=field, oneOf=oneOf, timeUnit=timeUnit, **kwds)
     
-
 
 class FieldRangePredicate(SchemaBase):
     """FieldRangePredicate schema wrapper
@@ -1278,13 +1253,12 @@ class FieldRangePredicate(SchemaBase):
         super(FieldRangePredicate, self).__init__(field=field, range=range, timeUnit=timeUnit, **kwds)
     
 
-
 class FilterTransform(SchemaBase):
     """FilterTransform schema wrapper
     
     Attributes
     ----------
-    filter : LogicalOperand<Predicate>
+    filter : LogicalOperandPredicate
         The `filter` property must be one of the predicate definitions: (1) an [expression](https://vega.github.io/vega-lite/docs/types.html#expression) string, where `datum` can be used to refer to the current data object; (2) one of the field predicates: [equal predicate](https://vega.github.io/vega-lite/docs/filter.html#equal-predicate); [range predicate](filter.html#range-predicate), [one-of predicate](https://vega.github.io/vega-lite/docs/filter.html#one-of-predicate); (3) a [selection predicate](https://vega.github.io/vega-lite/docs/filter.html#selection-predicate); or (4) a logical operand that combines (1), (2), or (3).
     """
     _schema = {'$ref': '#/definitions/FilterTransform'}
@@ -1294,9 +1268,11 @@ class FilterTransform(SchemaBase):
         super(FilterTransform, self).__init__(filter=filter, **kwds)
     
 
-
 class FontStyle(SchemaBase):
-    """FontStyle schema wrapper"""
+    """FontStyle schema wrapper
+    
+    One of ['normal', 'italic']
+    """
     _schema = {'$ref': '#/definitions/FontStyle'}
     _rootschema = Root._schema
 
@@ -1304,16 +1280,17 @@ class FontStyle(SchemaBase):
         super(FontStyle, self).__init__(*args)
     
 
-
 class FontWeight(SchemaBase):
-    """FontWeight schema wrapper"""
+    """FontWeight schema wrapper
+    
+    One of ['normal', 'bold']
+    """
     _schema = {'$ref': '#/definitions/FontWeight'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(FontWeight, self).__init__(*args)
     
-
 
 class FontWeightNumber(SchemaBase):
     """FontWeightNumber schema wrapper"""
@@ -1323,7 +1300,6 @@ class FontWeightNumber(SchemaBase):
     def __init__(self, *args):
         super(FontWeightNumber, self).__init__(*args)
     
-
 
 class FacetSpec(SchemaBase):
     """FacetSpec schema wrapper
@@ -1354,7 +1330,6 @@ class FacetSpec(SchemaBase):
         super(FacetSpec, self).__init__(facet=facet, spec=spec, data=data, description=description, name=name, resolve=resolve, title=title, transform=transform, **kwds)
     
 
-
 class HConcatSpec(SchemaBase):
     """HConcatSpec schema wrapper
     
@@ -1381,7 +1356,6 @@ class HConcatSpec(SchemaBase):
     def __init__(self, hconcat=Undefined, data=Undefined, description=Undefined, name=Undefined, resolve=Undefined, title=Undefined, transform=Undefined, **kwds):
         super(HConcatSpec, self).__init__(hconcat=hconcat, data=data, description=description, name=name, resolve=resolve, title=title, transform=transform, **kwds)
     
-
 
 class LayerSpec(SchemaBase):
     """LayerSpec schema wrapper
@@ -1414,7 +1388,6 @@ class LayerSpec(SchemaBase):
         super(LayerSpec, self).__init__(layer=layer, data=data, description=description, height=height, name=name, resolve=resolve, title=title, transform=transform, width=width, **kwds)
     
 
-
 class RepeatSpec(SchemaBase):
     """RepeatSpec schema wrapper
     
@@ -1444,16 +1417,17 @@ class RepeatSpec(SchemaBase):
         super(RepeatSpec, self).__init__(repeat=repeat, spec=spec, data=data, description=description, name=name, resolve=resolve, title=title, transform=transform, **kwds)
     
 
-
 class Spec(SchemaBase):
-    """Spec schema wrapper"""
+    """Spec schema wrapper
+    
+    An object that matches one or more of [CompositeUnitSpec, LayerSpec, FacetSpec, RepeatSpec, VConcatSpec, HConcatSpec]
+    """
     _schema = {'$ref': '#/definitions/Spec'}
     _rootschema = Root._schema
 
     def __init__(self, *args, **kwds):
         super(Spec, self).__init__(*args, **kwds)
     
-
 
 class CompositeUnitSpecAlias(SchemaBase):
     """CompositeUnitSpecAlias schema wrapper
@@ -1490,7 +1464,6 @@ class CompositeUnitSpecAlias(SchemaBase):
         super(CompositeUnitSpecAlias, self).__init__(mark=mark, data=data, description=description, encoding=encoding, height=height, name=name, projection=projection, selection=selection, title=title, transform=transform, width=width, **kwds)
     
 
-
 class FacetedCompositeUnitSpecAlias(SchemaBase):
     """FacetedCompositeUnitSpecAlias schema wrapper
     
@@ -1526,7 +1499,6 @@ class FacetedCompositeUnitSpecAlias(SchemaBase):
         super(FacetedCompositeUnitSpecAlias, self).__init__(mark=mark, data=data, description=description, encoding=encoding, height=height, name=name, projection=projection, selection=selection, title=title, transform=transform, width=width, **kwds)
     
 
-
 class VConcatSpec(SchemaBase):
     """VConcatSpec schema wrapper
     
@@ -1554,16 +1526,17 @@ class VConcatSpec(SchemaBase):
         super(VConcatSpec, self).__init__(vconcat=vconcat, data=data, description=description, name=name, resolve=resolve, title=title, transform=transform, **kwds)
     
 
-
 class GeoType(SchemaBase):
-    """GeoType schema wrapper"""
+    """GeoType schema wrapper
+    
+    One of ['latitude', 'longitude', 'geojson']
+    """
     _schema = {'$ref': '#/definitions/GeoType'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(GeoType, self).__init__(*args)
     
-
 
 class Header(SchemaBase):
     """Header schema wrapper
@@ -1586,16 +1559,17 @@ class Header(SchemaBase):
         super(Header, self).__init__(format=format, labelAngle=labelAngle, title=title, **kwds)
     
 
-
 class HorizontalAlign(SchemaBase):
-    """HorizontalAlign schema wrapper"""
+    """HorizontalAlign schema wrapper
+    
+    One of ['left', 'right', 'center']
+    """
     _schema = {'$ref': '#/definitions/HorizontalAlign'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(HorizontalAlign, self).__init__(*args)
     
-
 
 class InlineData(SchemaBase):
     """InlineData schema wrapper
@@ -1614,16 +1588,17 @@ class InlineData(SchemaBase):
         super(InlineData, self).__init__(values=values, format=format, **kwds)
     
 
-
 class Interpolate(SchemaBase):
-    """Interpolate schema wrapper"""
+    """Interpolate schema wrapper
+    
+    One of ['linear', 'linear-closed', 'step', 'step-before', 'step-after', 'basis', 'basis-open', 'basis-closed', 'cardinal', 'cardinal-open', 'cardinal-closed', 'bundle', 'monotone']
+    """
     _schema = {'$ref': '#/definitions/Interpolate'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(Interpolate, self).__init__(*args)
     
-
 
 class IntervalSelection(SchemaBase):
     """IntervalSelection schema wrapper
@@ -1658,7 +1633,6 @@ class IntervalSelection(SchemaBase):
         super(IntervalSelection, self).__init__(type=type, bind=bind, empty=empty, encodings=encodings, fields=fields, mark=mark, on=on, resolve=resolve, translate=translate, zoom=zoom, **kwds)
     
 
-
 class IntervalSelectionConfig(SchemaBase):
     """IntervalSelectionConfig schema wrapper
     
@@ -1690,7 +1664,6 @@ class IntervalSelectionConfig(SchemaBase):
         super(IntervalSelectionConfig, self).__init__(bind=bind, empty=empty, encodings=encodings, fields=fields, mark=mark, on=on, resolve=resolve, translate=translate, zoom=zoom, **kwds)
     
 
-
 class JsonDataFormat(SchemaBase):
     """JsonDataFormat schema wrapper
     
@@ -1709,7 +1682,6 @@ class JsonDataFormat(SchemaBase):
     def __init__(self, parse=Undefined, property=Undefined, type=Undefined, **kwds):
         super(JsonDataFormat, self).__init__(parse=parse, property=property, type=type, **kwds)
     
-
 
 class Legend(SchemaBase):
     """Legend schema wrapper
@@ -1745,7 +1717,6 @@ class Legend(SchemaBase):
     def __init__(self, entryPadding=Undefined, format=Undefined, offset=Undefined, orient=Undefined, padding=Undefined, tickCount=Undefined, title=Undefined, type=Undefined, values=Undefined, zindex=Undefined, **kwds):
         super(Legend, self).__init__(entryPadding=entryPadding, format=format, offset=offset, orient=orient, padding=padding, tickCount=tickCount, title=title, type=type, values=values, zindex=zindex, **kwds)
     
-
 
 class LegendConfig(SchemaBase):
     """LegendConfig schema wrapper
@@ -1832,16 +1803,17 @@ class LegendConfig(SchemaBase):
         super(LegendConfig, self).__init__(cornerRadius=cornerRadius, entryPadding=entryPadding, fillColor=fillColor, gradientHeight=gradientHeight, gradientLabelBaseline=gradientLabelBaseline, gradientLabelLimit=gradientLabelLimit, gradientLabelOffset=gradientLabelOffset, gradientStrokeColor=gradientStrokeColor, gradientStrokeWidth=gradientStrokeWidth, gradientWidth=gradientWidth, labelAlign=labelAlign, labelBaseline=labelBaseline, labelColor=labelColor, labelFont=labelFont, labelFontSize=labelFontSize, labelLimit=labelLimit, labelOffset=labelOffset, offset=offset, orient=orient, padding=padding, shortTimeLabels=shortTimeLabels, strokeColor=strokeColor, strokeDash=strokeDash, strokeWidth=strokeWidth, symbolColor=symbolColor, symbolSize=symbolSize, symbolStrokeWidth=symbolStrokeWidth, symbolType=symbolType, titleAlign=titleAlign, titleBaseline=titleBaseline, titleColor=titleColor, titleFont=titleFont, titleFontSize=titleFontSize, titleFontWeight=titleFontWeight, titleLimit=titleLimit, titlePadding=titlePadding, **kwds)
     
 
-
 class LegendOrient(SchemaBase):
-    """LegendOrient schema wrapper"""
+    """LegendOrient schema wrapper
+    
+    One of ['left', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'none']
+    """
     _schema = {'$ref': '#/definitions/LegendOrient'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(LegendOrient, self).__init__(*args)
     
-
 
 class LegendResolveMap(SchemaBase):
     """LegendResolveMap schema wrapper
@@ -1864,9 +1836,11 @@ class LegendResolveMap(SchemaBase):
         super(LegendResolveMap, self).__init__(color=color, opacity=opacity, shape=shape, size=size, **kwds)
     
 
-
 class LocalMultiTimeUnit(SchemaBase):
-    """LocalMultiTimeUnit schema wrapper"""
+    """LocalMultiTimeUnit schema wrapper
+    
+    One of ['yearquarter', 'yearquartermonth', 'yearmonth', 'yearmonthdate', 'yearmonthdatehours', 'yearmonthdatehoursminutes', 'yearmonthdatehoursminutesseconds', 'quartermonth', 'monthdate', 'hoursminutes', 'hoursminutesseconds', 'minutesseconds', 'secondsmilliseconds']
+    """
     _schema = {'$ref': '#/definitions/LocalMultiTimeUnit'}
     _rootschema = Root._schema
 
@@ -1874,16 +1848,17 @@ class LocalMultiTimeUnit(SchemaBase):
         super(LocalMultiTimeUnit, self).__init__(*args)
     
 
-
 class LocalSingleTimeUnit(SchemaBase):
-    """LocalSingleTimeUnit schema wrapper"""
+    """LocalSingleTimeUnit schema wrapper
+    
+    One of ['year', 'quarter', 'month', 'day', 'date', 'hours', 'minutes', 'seconds', 'milliseconds']
+    """
     _schema = {'$ref': '#/definitions/LocalSingleTimeUnit'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(LocalSingleTimeUnit, self).__init__(*args)
     
-
 
 class LogicalAndPredicate(SchemaBase):
     """LogicalAndPredicate schema wrapper
@@ -1900,7 +1875,6 @@ class LogicalAndPredicate(SchemaBase):
         super(LogicalAndPredicate, self).__init__(**kwds)
     
 
-
 class SelectionAnd(SchemaBase):
     """SelectionAnd schema wrapper
     
@@ -1916,13 +1890,12 @@ class SelectionAnd(SchemaBase):
         super(SelectionAnd, self).__init__(**kwds)
     
 
-
 class LogicalNotPredicate(SchemaBase):
     """LogicalNotPredicate schema wrapper
     
     Attributes
     ----------
-    not : LogicalOperand<Predicate>
+    not : LogicalOperandPredicate
         
     """
     _schema = {'$ref': '#/definitions/LogicalNot<Predicate>'}
@@ -1931,7 +1904,6 @@ class LogicalNotPredicate(SchemaBase):
     def __init__(self, **kwds):
         super(LogicalNotPredicate, self).__init__(**kwds)
     
-
 
 class SelectionNot(SchemaBase):
     """SelectionNot schema wrapper
@@ -1948,9 +1920,11 @@ class SelectionNot(SchemaBase):
         super(SelectionNot, self).__init__(**kwds)
     
 
-
 class LogicalOperandPredicate(SchemaBase):
-    """LogicalOperandPredicate schema wrapper"""
+    """LogicalOperandPredicate schema wrapper
+    
+    An object that matches one or more of [LogicalNotPredicate, LogicalAndPredicate, LogicalOrPredicate, Predicate]
+    """
     _schema = {'$ref': '#/definitions/LogicalOperand<Predicate>'}
     _rootschema = Root._schema
 
@@ -1958,16 +1932,17 @@ class LogicalOperandPredicate(SchemaBase):
         super(LogicalOperandPredicate, self).__init__(*args, **kwds)
     
 
-
 class SelectionOperand(SchemaBase):
-    """SelectionOperand schema wrapper"""
+    """SelectionOperand schema wrapper
+    
+    An object that matches one or more of [SelectionNot, SelectionAnd, SelectionOr, string]
+    """
     _schema = {'$ref': '#/definitions/SelectionOperand'}
     _rootschema = Root._schema
 
     def __init__(self, *args, **kwds):
         super(SelectionOperand, self).__init__(*args, **kwds)
     
-
 
 class LogicalOrPredicate(SchemaBase):
     """LogicalOrPredicate schema wrapper
@@ -1984,7 +1959,6 @@ class LogicalOrPredicate(SchemaBase):
         super(LogicalOrPredicate, self).__init__(**kwds)
     
 
-
 class SelectionOr(SchemaBase):
     """SelectionOr schema wrapper
     
@@ -1999,7 +1973,6 @@ class SelectionOr(SchemaBase):
     def __init__(self, **kwds):
         super(SelectionOr, self).__init__(**kwds)
     
-
 
 class LookupData(SchemaBase):
     """LookupData schema wrapper
@@ -2019,7 +1992,6 @@ class LookupData(SchemaBase):
     def __init__(self, data=Undefined, key=Undefined, fields=Undefined, **kwds):
         super(LookupData, self).__init__(data=data, key=key, fields=fields, **kwds)
     
-
 
 class LookupTransform(SchemaBase):
     """LookupTransform schema wrapper
@@ -2042,11 +2014,10 @@ class LookupTransform(SchemaBase):
         super(LookupTransform, self).__init__(lookup=lookup, default=default, **kwds)
     
 
-
 class Mark(SchemaBase):
     """Mark schema wrapper
     
-    All types of primitive marks.
+    One of ['area', 'bar', 'line', 'point', 'text', 'tick', 'rect', 'rule', 'circle', 'square', 'geoshape']
     """
     _schema = {'$ref': '#/definitions/Mark'}
     _rootschema = Root._schema
@@ -2054,7 +2025,6 @@ class Mark(SchemaBase):
     def __init__(self, *args):
         super(Mark, self).__init__(*args)
     
-
 
 class MarkConfig(SchemaBase):
     """MarkConfig schema wrapper
@@ -2128,7 +2098,6 @@ class MarkConfig(SchemaBase):
     def __init__(self, align=Undefined, angle=Undefined, baseline=Undefined, color=Undefined, cursor=Undefined, dx=Undefined, dy=Undefined, fill=Undefined, fillOpacity=Undefined, filled=Undefined, font=Undefined, fontSize=Undefined, fontStyle=Undefined, fontWeight=Undefined, href=Undefined, interpolate=Undefined, limit=Undefined, opacity=Undefined, orient=Undefined, radius=Undefined, shape=Undefined, size=Undefined, stroke=Undefined, strokeDash=Undefined, strokeDashOffset=Undefined, strokeOpacity=Undefined, strokeWidth=Undefined, tension=Undefined, text=Undefined, theta=Undefined, **kwds):
         super(MarkConfig, self).__init__(align=align, angle=angle, baseline=baseline, color=color, cursor=cursor, dx=dx, dy=dy, fill=fill, fillOpacity=fillOpacity, filled=filled, font=font, fontSize=fontSize, fontStyle=fontStyle, fontWeight=fontWeight, href=href, interpolate=interpolate, limit=limit, opacity=opacity, orient=orient, radius=radius, shape=shape, size=size, stroke=stroke, strokeDash=strokeDash, strokeDashOffset=strokeDashOffset, strokeOpacity=strokeOpacity, strokeWidth=strokeWidth, tension=tension, text=text, theta=theta, **kwds)
     
-
 
 class MarkDef(SchemaBase):
     """MarkDef schema wrapper
@@ -2209,7 +2178,6 @@ class MarkDef(SchemaBase):
         super(MarkDef, self).__init__(type=type, align=align, angle=angle, baseline=baseline, clip=clip, color=color, cursor=cursor, dx=dx, dy=dy, fill=fill, fillOpacity=fillOpacity, filled=filled, font=font, fontSize=fontSize, fontStyle=fontStyle, fontWeight=fontWeight, href=href, interpolate=interpolate, limit=limit, opacity=opacity, orient=orient, radius=radius, shape=shape, size=size, stroke=stroke, strokeDash=strokeDash, strokeDashOffset=strokeDashOffset, strokeOpacity=strokeOpacity, strokeWidth=strokeWidth, style=style, tension=tension, text=text, theta=theta, **kwds)
     
 
-
 class Month(SchemaBase):
     """Month schema wrapper"""
     _schema = {'$ref': '#/definitions/Month'}
@@ -2218,7 +2186,6 @@ class Month(SchemaBase):
     def __init__(self, *args):
         super(Month, self).__init__(*args)
     
-
 
 class MultiSelection(SchemaBase):
     """MultiSelection schema wrapper
@@ -2249,7 +2216,6 @@ class MultiSelection(SchemaBase):
         super(MultiSelection, self).__init__(type=type, empty=empty, encodings=encodings, fields=fields, nearest=nearest, on=on, resolve=resolve, toggle=toggle, **kwds)
     
 
-
 class MultiSelectionConfig(SchemaBase):
     """MultiSelectionConfig schema wrapper
     
@@ -2277,16 +2243,17 @@ class MultiSelectionConfig(SchemaBase):
         super(MultiSelectionConfig, self).__init__(empty=empty, encodings=encodings, fields=fields, nearest=nearest, on=on, resolve=resolve, toggle=toggle, **kwds)
     
 
-
 class MultiTimeUnit(SchemaBase):
-    """MultiTimeUnit schema wrapper"""
+    """MultiTimeUnit schema wrapper
+    
+    An object that matches one or more of [LocalMultiTimeUnit, UtcMultiTimeUnit]
+    """
     _schema = {'$ref': '#/definitions/MultiTimeUnit'}
     _rootschema = Root._schema
 
     def __init__(self, *args, **kwds):
         super(MultiTimeUnit, self).__init__(*args, **kwds)
     
-
 
 class NamedData(SchemaBase):
     """NamedData schema wrapper
@@ -2305,16 +2272,17 @@ class NamedData(SchemaBase):
         super(NamedData, self).__init__(name=name, format=format, **kwds)
     
 
-
 class NiceTime(SchemaBase):
-    """NiceTime schema wrapper"""
+    """NiceTime schema wrapper
+    
+    One of ['second', 'minute', 'hour', 'day', 'week', 'month', 'year']
+    """
     _schema = {'$ref': '#/definitions/NiceTime'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(NiceTime, self).__init__(*args)
     
-
 
 class OrderFieldDef(SchemaBase):
     """OrderFieldDef schema wrapper
@@ -2341,9 +2309,11 @@ class OrderFieldDef(SchemaBase):
         super(OrderFieldDef, self).__init__(type=type, aggregate=aggregate, bin=bin, field=field, sort=sort, timeUnit=timeUnit, **kwds)
     
 
-
 class Orient(SchemaBase):
-    """Orient schema wrapper"""
+    """Orient schema wrapper
+    
+    One of ['horizontal', 'vertical']
+    """
     _schema = {'$ref': '#/definitions/Orient'}
     _rootschema = Root._schema
 
@@ -2351,16 +2321,17 @@ class Orient(SchemaBase):
         super(Orient, self).__init__(*args)
     
 
-
 class Padding(SchemaBase):
-    """Padding schema wrapper"""
+    """Padding schema wrapper
+    
+    An object that matches one or more of [float, mapping]
+    """
     _schema = {'$ref': '#/definitions/Padding'}
     _rootschema = Root._schema
 
     def __init__(self, *args, **kwds):
         super(Padding, self).__init__(*args, **kwds)
     
-
 
 class PositionFieldDef(SchemaBase):
     """PositionFieldDef schema wrapper
@@ -2393,16 +2364,17 @@ class PositionFieldDef(SchemaBase):
         super(PositionFieldDef, self).__init__(type=type, aggregate=aggregate, axis=axis, bin=bin, field=field, scale=scale, sort=sort, stack=stack, timeUnit=timeUnit, **kwds)
     
 
-
 class Predicate(SchemaBase):
-    """Predicate schema wrapper"""
+    """Predicate schema wrapper
+    
+    An object that matches one or more of [FieldEqualPredicate, FieldRangePredicate, FieldOneOfPredicate, SelectionPredicate, string]
+    """
     _schema = {'$ref': '#/definitions/Predicate'}
     _rootschema = Root._schema
 
     def __init__(self, *args, **kwds):
         super(Predicate, self).__init__(*args, **kwds)
     
-
 
 class Projection(SchemaBase):
     """Projection schema wrapper
@@ -2446,7 +2418,6 @@ class Projection(SchemaBase):
     def __init__(self, center=Undefined, clipAngle=Undefined, clipExtent=Undefined, coefficient=Undefined, distance=Undefined, fraction=Undefined, lobes=Undefined, parallel=Undefined, precision=Undefined, radius=Undefined, ratio=Undefined, rotate=Undefined, spacing=Undefined, tilt=Undefined, type=Undefined, **kwds):
         super(Projection, self).__init__(center=center, clipAngle=clipAngle, clipExtent=clipExtent, coefficient=coefficient, distance=distance, fraction=fraction, lobes=lobes, parallel=parallel, precision=precision, radius=radius, ratio=ratio, rotate=rotate, spacing=spacing, tilt=tilt, type=type, **kwds)
     
-
 
 class ProjectionConfig(SchemaBase):
     """ProjectionConfig schema wrapper
@@ -2493,16 +2464,17 @@ class ProjectionConfig(SchemaBase):
         super(ProjectionConfig, self).__init__(center=center, clipAngle=clipAngle, clipExtent=clipExtent, coefficient=coefficient, distance=distance, fraction=fraction, lobes=lobes, parallel=parallel, precision=precision, radius=radius, ratio=ratio, rotate=rotate, spacing=spacing, tilt=tilt, type=type, **kwds)
     
 
-
 class ProjectionType(SchemaBase):
-    """ProjectionType schema wrapper"""
+    """ProjectionType schema wrapper
+    
+    One of ['albers', 'albersUsa', 'azimuthalEqualArea', 'azimuthalEquidistant', 'conicConformal', 'conicEqualArea', 'conicEquidistant', 'equirectangular', 'gnomonic', 'mercator', 'orthographic', 'stereographic', 'transverseMercator']
+    """
     _schema = {'$ref': '#/definitions/ProjectionType'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(ProjectionType, self).__init__(*args)
     
-
 
 class RangeConfig(SchemaBase):
     """RangeConfig schema wrapper
@@ -2529,16 +2501,17 @@ class RangeConfig(SchemaBase):
         super(RangeConfig, self).__init__(category=category, diverging=diverging, heatmap=heatmap, ordinal=ordinal, ramp=ramp, symbol=symbol, **kwds)
     
 
-
 class RangeConfigValue(SchemaBase):
-    """RangeConfigValue schema wrapper"""
+    """RangeConfigValue schema wrapper
+    
+    An object that matches one or more of [list, VgScheme, mapping]
+    """
     _schema = {'$ref': '#/definitions/RangeConfigValue'}
     _rootschema = Root._schema
 
     def __init__(self, *args, **kwds):
         super(RangeConfigValue, self).__init__(*args, **kwds)
     
-
 
 class Repeat(SchemaBase):
     """Repeat schema wrapper
@@ -2557,7 +2530,6 @@ class Repeat(SchemaBase):
         super(Repeat, self).__init__(column=column, row=row, **kwds)
     
 
-
 class RepeatRef(SchemaBase):
     """RepeatRef schema wrapper
     
@@ -2574,7 +2546,6 @@ class RepeatRef(SchemaBase):
     def __init__(self, repeat=Undefined, **kwds):
         super(RepeatRef, self).__init__(repeat=repeat, **kwds)
     
-
 
 class Resolve(SchemaBase):
     """Resolve schema wrapper
@@ -2597,16 +2568,17 @@ class Resolve(SchemaBase):
         super(Resolve, self).__init__(axis=axis, legend=legend, scale=scale, **kwds)
     
 
-
 class ResolveMode(SchemaBase):
-    """ResolveMode schema wrapper"""
+    """ResolveMode schema wrapper
+    
+    One of ['independent', 'shared']
+    """
     _schema = {'$ref': '#/definitions/ResolveMode'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(ResolveMode, self).__init__(*args)
     
-
 
 class Scale(SchemaBase):
     """Scale schema wrapper
@@ -2650,7 +2622,6 @@ class Scale(SchemaBase):
     def __init__(self, base=Undefined, clamp=Undefined, domain=Undefined, exponent=Undefined, interpolate=Undefined, nice=Undefined, padding=Undefined, paddingInner=Undefined, paddingOuter=Undefined, range=Undefined, rangeStep=Undefined, round=Undefined, scheme=Undefined, type=Undefined, zero=Undefined, **kwds):
         super(Scale, self).__init__(base=base, clamp=clamp, domain=domain, exponent=exponent, interpolate=interpolate, nice=nice, padding=padding, paddingInner=paddingInner, paddingOuter=paddingOuter, range=range, rangeStep=rangeStep, round=round, scheme=scheme, type=type, zero=zero, **kwds)
     
-
 
 class ScaleConfig(SchemaBase):
     """ScaleConfig schema wrapper
@@ -2703,16 +2674,17 @@ class ScaleConfig(SchemaBase):
         super(ScaleConfig, self).__init__(bandPaddingInner=bandPaddingInner, bandPaddingOuter=bandPaddingOuter, clamp=clamp, continuousPadding=continuousPadding, maxBandSize=maxBandSize, maxFontSize=maxFontSize, maxOpacity=maxOpacity, maxSize=maxSize, maxStrokeWidth=maxStrokeWidth, minBandSize=minBandSize, minFontSize=minFontSize, minOpacity=minOpacity, minSize=minSize, minStrokeWidth=minStrokeWidth, pointPadding=pointPadding, rangeStep=rangeStep, round=round, textXRangeStep=textXRangeStep, useUnaggregatedDomain=useUnaggregatedDomain, **kwds)
     
 
-
 class ScaleInterpolate(SchemaBase):
-    """ScaleInterpolate schema wrapper"""
+    """ScaleInterpolate schema wrapper
+    
+    One of ['rgb', 'lab', 'hcl', 'hsl', 'hsl-long', 'hcl-long', 'cubehelix', 'cubehelix-long']
+    """
     _schema = {'$ref': '#/definitions/ScaleInterpolate'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(ScaleInterpolate, self).__init__(*args)
     
-
 
 class ScaleInterpolateParams(SchemaBase):
     """ScaleInterpolateParams schema wrapper
@@ -2730,7 +2702,6 @@ class ScaleInterpolateParams(SchemaBase):
     def __init__(self, type=Undefined, gamma=Undefined, **kwds):
         super(ScaleInterpolateParams, self).__init__(type=type, gamma=gamma, **kwds)
     
-
 
 class ScaleResolveMap(SchemaBase):
     """ScaleResolveMap schema wrapper
@@ -2757,16 +2728,17 @@ class ScaleResolveMap(SchemaBase):
         super(ScaleResolveMap, self).__init__(color=color, opacity=opacity, shape=shape, size=size, x=x, y=y, **kwds)
     
 
-
 class ScaleType(SchemaBase):
-    """ScaleType schema wrapper"""
+    """ScaleType schema wrapper
+    
+    One of ['linear', 'bin-linear', 'log', 'pow', 'sqrt', 'time', 'utc', 'sequential', 'ordinal', 'bin-ordinal', 'point', 'band']
+    """
     _schema = {'$ref': '#/definitions/ScaleType'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(ScaleType, self).__init__(*args)
     
-
 
 class SchemeParams(SchemaBase):
     """SchemeParams schema wrapper
@@ -2784,7 +2756,6 @@ class SchemeParams(SchemaBase):
     def __init__(self, name=Undefined, extent=Undefined, **kwds):
         super(SchemeParams, self).__init__(name=name, extent=extent, **kwds)
     
-
 
 class SelectionConfig(SchemaBase):
     """SelectionConfig schema wrapper
@@ -2805,9 +2776,11 @@ class SelectionConfig(SchemaBase):
         super(SelectionConfig, self).__init__(interval=interval, multi=multi, single=single, **kwds)
     
 
-
 class SelectionDef(SchemaBase):
-    """SelectionDef schema wrapper"""
+    """SelectionDef schema wrapper
+    
+    An object that matches one or more of [SingleSelection, MultiSelection, IntervalSelection]
+    """
     _schema = {'$ref': '#/definitions/SelectionDef'}
     _rootschema = Root._schema
 
@@ -2815,16 +2788,17 @@ class SelectionDef(SchemaBase):
         super(SelectionDef, self).__init__(*args, **kwds)
     
 
-
 class SelectionDomain(SchemaBase):
-    """SelectionDomain schema wrapper"""
+    """SelectionDomain schema wrapper
+    
+    An object that matches one or more of [mapping, mapping]
+    """
     _schema = {'$ref': '#/definitions/SelectionDomain'}
     _rootschema = Root._schema
 
     def __init__(self, *args, **kwds):
         super(SelectionDomain, self).__init__(*args, **kwds)
     
-
 
 class SelectionPredicate(SchemaBase):
     """SelectionPredicate schema wrapper
@@ -2841,9 +2815,11 @@ class SelectionPredicate(SchemaBase):
         super(SelectionPredicate, self).__init__(selection=selection, **kwds)
     
 
-
 class SelectionResolution(SchemaBase):
-    """SelectionResolution schema wrapper"""
+    """SelectionResolution schema wrapper
+    
+    One of ['global', 'union', 'intersect']
+    """
     _schema = {'$ref': '#/definitions/SelectionResolution'}
     _rootschema = Root._schema
 
@@ -2851,16 +2827,17 @@ class SelectionResolution(SchemaBase):
         super(SelectionResolution, self).__init__(*args)
     
 
-
 class SingleDefChannel(SchemaBase):
-    """SingleDefChannel schema wrapper"""
+    """SingleDefChannel schema wrapper
+    
+    One of ['x', 'y', 'x2', 'y2', 'row', 'column', 'size', 'shape', 'color', 'opacity', 'text', 'tooltip', 'href']
+    """
     _schema = {'$ref': '#/definitions/SingleDefChannel'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(SingleDefChannel, self).__init__(*args)
     
-
 
 class SingleSelection(SchemaBase):
     """SingleSelection schema wrapper
@@ -2891,7 +2868,6 @@ class SingleSelection(SchemaBase):
         super(SingleSelection, self).__init__(type=type, bind=bind, empty=empty, encodings=encodings, fields=fields, nearest=nearest, on=on, resolve=resolve, **kwds)
     
 
-
 class SingleSelectionConfig(SchemaBase):
     """SingleSelectionConfig schema wrapper
     
@@ -2919,16 +2895,17 @@ class SingleSelectionConfig(SchemaBase):
         super(SingleSelectionConfig, self).__init__(bind=bind, empty=empty, encodings=encodings, fields=fields, nearest=nearest, on=on, resolve=resolve, **kwds)
     
 
-
 class SingleTimeUnit(SchemaBase):
-    """SingleTimeUnit schema wrapper"""
+    """SingleTimeUnit schema wrapper
+    
+    An object that matches one or more of [LocalSingleTimeUnit, UtcSingleTimeUnit]
+    """
     _schema = {'$ref': '#/definitions/SingleTimeUnit'}
     _rootschema = Root._schema
 
     def __init__(self, *args, **kwds):
         super(SingleTimeUnit, self).__init__(*args, **kwds)
     
-
 
 class SortField(SchemaBase):
     """SortField schema wrapper
@@ -2949,9 +2926,11 @@ class SortField(SchemaBase):
         super(SortField, self).__init__(op=op, field=field, order=order, **kwds)
     
 
-
 class SortOrder(SchemaBase):
-    """SortOrder schema wrapper"""
+    """SortOrder schema wrapper
+    
+    One of ['ascending', 'descending', None]
+    """
     _schema = {'$ref': '#/definitions/SortOrder'}
     _rootschema = Root._schema
 
@@ -2959,16 +2938,17 @@ class SortOrder(SchemaBase):
         super(SortOrder, self).__init__(*args)
     
 
-
 class StackOffset(SchemaBase):
-    """StackOffset schema wrapper"""
+    """StackOffset schema wrapper
+    
+    One of ['zero', 'center', 'normalize']
+    """
     _schema = {'$ref': '#/definitions/StackOffset'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(StackOffset, self).__init__(*args)
     
-
 
 class StyleConfigIndex(SchemaBase):
     """StyleConfigIndex schema wrapper"""
@@ -2978,7 +2958,6 @@ class StyleConfigIndex(SchemaBase):
     def __init__(self, **kwds):
         super(StyleConfigIndex, self).__init__(**kwds)
     
-
 
 class TextConfig(SchemaBase):
     """TextConfig schema wrapper
@@ -3054,7 +3033,6 @@ class TextConfig(SchemaBase):
     def __init__(self, align=Undefined, angle=Undefined, baseline=Undefined, color=Undefined, cursor=Undefined, dx=Undefined, dy=Undefined, fill=Undefined, fillOpacity=Undefined, filled=Undefined, font=Undefined, fontSize=Undefined, fontStyle=Undefined, fontWeight=Undefined, href=Undefined, interpolate=Undefined, limit=Undefined, opacity=Undefined, orient=Undefined, radius=Undefined, shape=Undefined, shortTimeLabels=Undefined, size=Undefined, stroke=Undefined, strokeDash=Undefined, strokeDashOffset=Undefined, strokeOpacity=Undefined, strokeWidth=Undefined, tension=Undefined, text=Undefined, theta=Undefined, **kwds):
         super(TextConfig, self).__init__(align=align, angle=angle, baseline=baseline, color=color, cursor=cursor, dx=dx, dy=dy, fill=fill, fillOpacity=fillOpacity, filled=filled, font=font, fontSize=fontSize, fontStyle=fontStyle, fontWeight=fontWeight, href=href, interpolate=interpolate, limit=limit, opacity=opacity, orient=orient, radius=radius, shape=shape, shortTimeLabels=shortTimeLabels, size=size, stroke=stroke, strokeDash=strokeDash, strokeDashOffset=strokeDashOffset, strokeOpacity=strokeOpacity, strokeWidth=strokeWidth, tension=tension, text=text, theta=theta, **kwds)
     
-
 
 class TickConfig(SchemaBase):
     """TickConfig schema wrapper
@@ -3133,16 +3111,17 @@ class TickConfig(SchemaBase):
         super(TickConfig, self).__init__(align=align, angle=angle, bandSize=bandSize, baseline=baseline, color=color, cursor=cursor, dx=dx, dy=dy, fill=fill, fillOpacity=fillOpacity, filled=filled, font=font, fontSize=fontSize, fontStyle=fontStyle, fontWeight=fontWeight, href=href, interpolate=interpolate, limit=limit, opacity=opacity, orient=orient, radius=radius, shape=shape, size=size, stroke=stroke, strokeDash=strokeDash, strokeDashOffset=strokeDashOffset, strokeOpacity=strokeOpacity, strokeWidth=strokeWidth, tension=tension, text=text, theta=theta, thickness=thickness, **kwds)
     
 
-
 class TimeUnit(SchemaBase):
-    """TimeUnit schema wrapper"""
+    """TimeUnit schema wrapper
+    
+    An object that matches one or more of [SingleTimeUnit, MultiTimeUnit]
+    """
     _schema = {'$ref': '#/definitions/TimeUnit'}
     _rootschema = Root._schema
 
     def __init__(self, *args, **kwds):
         super(TimeUnit, self).__init__(*args, **kwds)
     
-
 
 class TimeUnitTransform(SchemaBase):
     """TimeUnitTransform schema wrapper
@@ -3163,16 +3142,17 @@ class TimeUnitTransform(SchemaBase):
         super(TimeUnitTransform, self).__init__(field=field, timeUnit=timeUnit, **kwds)
     
 
-
 class TitleOrient(SchemaBase):
-    """TitleOrient schema wrapper"""
+    """TitleOrient schema wrapper
+    
+    One of ['top', 'bottom', 'left', 'right']
+    """
     _schema = {'$ref': '#/definitions/TitleOrient'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(TitleOrient, self).__init__(*args)
     
-
 
 class TitleParams(SchemaBase):
     """TitleParams schema wrapper
@@ -3196,7 +3176,6 @@ class TitleParams(SchemaBase):
     def __init__(self, text=Undefined, anchor=Undefined, offset=Undefined, orient=Undefined, style=Undefined, **kwds):
         super(TitleParams, self).__init__(text=text, anchor=anchor, offset=offset, orient=orient, style=style, **kwds)
     
-
 
 class TopLevelFacetedUnitSpec(SchemaBase):
     """TopLevelFacetedUnitSpec schema wrapper
@@ -3243,7 +3222,6 @@ class TopLevelFacetedUnitSpec(SchemaBase):
         super(TopLevelFacetedUnitSpec, self).__init__(mark=mark, autosize=autosize, background=background, config=config, data=data, description=description, encoding=encoding, height=height, name=name, padding=padding, projection=projection, selection=selection, title=title, transform=transform, width=width, **kwds)
     
 
-
 class TopLevelFacetSpec(SchemaBase):
     """TopLevelFacetSpec schema wrapper
     
@@ -3283,7 +3261,6 @@ class TopLevelFacetSpec(SchemaBase):
         super(TopLevelFacetSpec, self).__init__(facet=facet, spec=spec, autosize=autosize, background=background, config=config, data=data, description=description, name=name, padding=padding, resolve=resolve, title=title, transform=transform, **kwds)
     
 
-
 class TopLevelHConcatSpec(SchemaBase):
     """TopLevelHConcatSpec schema wrapper
     
@@ -3320,7 +3297,6 @@ class TopLevelHConcatSpec(SchemaBase):
     def __init__(self, hconcat=Undefined, autosize=Undefined, background=Undefined, config=Undefined, data=Undefined, description=Undefined, name=Undefined, padding=Undefined, resolve=Undefined, title=Undefined, transform=Undefined, **kwds):
         super(TopLevelHConcatSpec, self).__init__(hconcat=hconcat, autosize=autosize, background=background, config=config, data=data, description=description, name=name, padding=padding, resolve=resolve, title=title, transform=transform, **kwds)
     
-
 
 class TopLevelLayerSpec(SchemaBase):
     """TopLevelLayerSpec schema wrapper
@@ -3363,7 +3339,6 @@ class TopLevelLayerSpec(SchemaBase):
         super(TopLevelLayerSpec, self).__init__(layer=layer, autosize=autosize, background=background, config=config, data=data, description=description, height=height, name=name, padding=padding, resolve=resolve, title=title, transform=transform, width=width, **kwds)
     
 
-
 class TopLevelRepeatSpec(SchemaBase):
     """TopLevelRepeatSpec schema wrapper
     
@@ -3403,7 +3378,6 @@ class TopLevelRepeatSpec(SchemaBase):
         super(TopLevelRepeatSpec, self).__init__(repeat=repeat, spec=spec, autosize=autosize, background=background, config=config, data=data, description=description, name=name, padding=padding, resolve=resolve, title=title, transform=transform, **kwds)
     
 
-
 class TopLevelVConcatSpec(SchemaBase):
     """TopLevelVConcatSpec schema wrapper
     
@@ -3441,16 +3415,17 @@ class TopLevelVConcatSpec(SchemaBase):
         super(TopLevelVConcatSpec, self).__init__(vconcat=vconcat, autosize=autosize, background=background, config=config, data=data, description=description, name=name, padding=padding, resolve=resolve, title=title, transform=transform, **kwds)
     
 
-
 class TopLevelExtendedSpec(SchemaBase):
-    """TopLevelExtendedSpec schema wrapper"""
+    """TopLevelExtendedSpec schema wrapper
+    
+    An object that matches one or more of [TopLevelFacetedUnitSpec, TopLevelLayerSpec, TopLevelFacetSpec, TopLevelRepeatSpec, TopLevelVConcatSpec, TopLevelHConcatSpec]
+    """
     _schema = {'$ref': '#/definitions/TopLevelExtendedSpec'}
     _rootschema = Root._schema
 
     def __init__(self, *args, **kwds):
         super(TopLevelExtendedSpec, self).__init__(*args, **kwds)
     
-
 
 class TopoDataFormat(SchemaBase):
     """TopoDataFormat schema wrapper
@@ -3473,9 +3448,11 @@ class TopoDataFormat(SchemaBase):
         super(TopoDataFormat, self).__init__(feature=feature, mesh=mesh, parse=parse, type=type, **kwds)
     
 
-
 class Transform(SchemaBase):
-    """Transform schema wrapper"""
+    """Transform schema wrapper
+    
+    An object that matches one or more of [FilterTransform, CalculateTransform, LookupTransform, BinTransform, TimeUnitTransform, AggregateTransform]
+    """
     _schema = {'$ref': '#/definitions/Transform'}
     _rootschema = Root._schema
 
@@ -3483,12 +3460,10 @@ class Transform(SchemaBase):
         super(Transform, self).__init__(*args, **kwds)
     
 
-
 class Type(SchemaBase):
     """Type schema wrapper
     
-    Constants and utilities for data type  
- Data type based on level of measurement 
+    An object that matches one or more of [BasicType, GeoType]
     """
     _schema = {'$ref': '#/definitions/Type'}
     _rootschema = Root._schema
@@ -3496,7 +3471,6 @@ class Type(SchemaBase):
     def __init__(self, *args, **kwds):
         super(Type, self).__init__(*args, **kwds)
     
-
 
 class UrlData(SchemaBase):
     """UrlData schema wrapper
@@ -3515,9 +3489,11 @@ class UrlData(SchemaBase):
         super(UrlData, self).__init__(url=url, format=format, **kwds)
     
 
-
 class UtcMultiTimeUnit(SchemaBase):
-    """UtcMultiTimeUnit schema wrapper"""
+    """UtcMultiTimeUnit schema wrapper
+    
+    One of ['utcyearquarter', 'utcyearquartermonth', 'utcyearmonth', 'utcyearmonthdate', 'utcyearmonthdatehours', 'utcyearmonthdatehoursminutes', 'utcyearmonthdatehoursminutesseconds', 'utcquartermonth', 'utcmonthdate', 'utchoursminutes', 'utchoursminutesseconds', 'utcminutesseconds', 'utcsecondsmilliseconds']
+    """
     _schema = {'$ref': '#/definitions/UtcMultiTimeUnit'}
     _rootschema = Root._schema
 
@@ -3525,16 +3501,17 @@ class UtcMultiTimeUnit(SchemaBase):
         super(UtcMultiTimeUnit, self).__init__(*args)
     
 
-
 class UtcSingleTimeUnit(SchemaBase):
-    """UtcSingleTimeUnit schema wrapper"""
+    """UtcSingleTimeUnit schema wrapper
+    
+    One of ['utcyear', 'utcquarter', 'utcmonth', 'utcday', 'utcdate', 'utchours', 'utcminutes', 'utcseconds', 'utcmilliseconds']
+    """
     _schema = {'$ref': '#/definitions/UtcSingleTimeUnit'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(UtcSingleTimeUnit, self).__init__(*args)
     
-
 
 class ValueDef(SchemaBase):
     """ValueDef schema wrapper
@@ -3553,19 +3530,14 @@ class ValueDef(SchemaBase):
         super(ValueDef, self).__init__(value=value, **kwds)
     
 
-
 class ValueDefWithCondition(SchemaBase):
     """ValueDefWithCondition schema wrapper
     
-    A ValueDef with Condition<ValueDef | FieldDef>
-{
-   condition: {field: ...} | {value: ...},
-   value: ...,
-}
+    A ValueDef with Condition<ValueDef | FieldDef> {    condition: {field: ...} | {value: ...},    value: ..., }
     
     Attributes
     ----------
-    condition : anyOf(Conditional<FieldDef>, Conditional<ValueDef>, list)
+    condition : anyOf(ConditionalFieldDef, ConditionalValueDef, list)
         A field definition or one or more value definition(s) with a selection predicate.
     value : anyOf(float, string, boolean)
         A constant value in visual domain.
@@ -3577,19 +3549,14 @@ class ValueDefWithCondition(SchemaBase):
         super(ValueDefWithCondition, self).__init__(condition=condition, value=value, **kwds)
     
 
-
 class MarkPropValueDefWithCondition(SchemaBase):
     """MarkPropValueDefWithCondition schema wrapper
     
-    A ValueDef with Condition<ValueDef | FieldDef>
-{
-   condition: {field: ...} | {value: ...},
-   value: ...,
-}
+    A ValueDef with Condition<ValueDef | FieldDef> {    condition: {field: ...} | {value: ...},    value: ..., }
     
     Attributes
     ----------
-    condition : anyOf(Conditional<MarkPropFieldDef>, Conditional<ValueDef>, list)
+    condition : anyOf(ConditionalMarkPropFieldDef, ConditionalValueDef, list)
         A field definition or one or more value definition(s) with a selection predicate.
     value : anyOf(float, string, boolean)
         A constant value in visual domain.
@@ -3601,19 +3568,14 @@ class MarkPropValueDefWithCondition(SchemaBase):
         super(MarkPropValueDefWithCondition, self).__init__(condition=condition, value=value, **kwds)
     
 
-
 class TextValueDefWithCondition(SchemaBase):
     """TextValueDefWithCondition schema wrapper
     
-    A ValueDef with Condition<ValueDef | FieldDef>
-{
-   condition: {field: ...} | {value: ...},
-   value: ...,
-}
+    A ValueDef with Condition<ValueDef | FieldDef> {    condition: {field: ...} | {value: ...},    value: ..., }
     
     Attributes
     ----------
-    condition : anyOf(Conditional<TextFieldDef>, Conditional<ValueDef>, list)
+    condition : anyOf(ConditionalTextFieldDef, ConditionalValueDef, list)
         A field definition or one or more value definition(s) with a selection predicate.
     value : anyOf(float, string, boolean)
         A constant value in visual domain.
@@ -3625,16 +3587,17 @@ class TextValueDefWithCondition(SchemaBase):
         super(TextValueDefWithCondition, self).__init__(condition=condition, value=value, **kwds)
     
 
-
 class VerticalAlign(SchemaBase):
-    """VerticalAlign schema wrapper"""
+    """VerticalAlign schema wrapper
+    
+    One of ['top', 'middle', 'bottom']
+    """
     _schema = {'$ref': '#/definitions/VerticalAlign'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(VerticalAlign, self).__init__(*args)
     
-
 
 class VgAxisConfig(SchemaBase):
     """VgAxisConfig schema wrapper
@@ -3725,16 +3688,17 @@ class VgAxisConfig(SchemaBase):
         super(VgAxisConfig, self).__init__(bandPosition=bandPosition, domain=domain, domainColor=domainColor, domainWidth=domainWidth, grid=grid, gridColor=gridColor, gridDash=gridDash, gridOpacity=gridOpacity, gridWidth=gridWidth, labelAngle=labelAngle, labelBound=labelBound, labelColor=labelColor, labelFlush=labelFlush, labelFont=labelFont, labelFontSize=labelFontSize, labelLimit=labelLimit, labelOverlap=labelOverlap, labelPadding=labelPadding, labels=labels, maxExtent=maxExtent, minExtent=minExtent, tickColor=tickColor, tickRound=tickRound, tickSize=tickSize, tickWidth=tickWidth, ticks=ticks, titleAlign=titleAlign, titleAngle=titleAngle, titleBaseline=titleBaseline, titleColor=titleColor, titleFont=titleFont, titleFontSize=titleFontSize, titleFontWeight=titleFontWeight, titleLimit=titleLimit, titleMaxLength=titleMaxLength, titlePadding=titlePadding, titleX=titleX, titleY=titleY, **kwds)
     
 
-
 class VgBinding(SchemaBase):
-    """VgBinding schema wrapper"""
+    """VgBinding schema wrapper
+    
+    An object that matches one or more of [VgCheckboxBinding, VgRadioBinding, VgSelectBinding, VgRangeBinding, VgGenericBinding]
+    """
     _schema = {'$ref': '#/definitions/VgBinding'}
     _rootschema = Root._schema
 
     def __init__(self, *args, **kwds):
         super(VgBinding, self).__init__(*args, **kwds)
     
-
 
 class VgCheckboxBinding(SchemaBase):
     """VgCheckboxBinding schema wrapper
@@ -3753,7 +3717,6 @@ class VgCheckboxBinding(SchemaBase):
         super(VgCheckboxBinding, self).__init__(input=input, element=element, **kwds)
     
 
-
 class VgEventStream(SchemaBase):
     """VgEventStream schema wrapper"""
     _schema = {'$ref': '#/definitions/VgEventStream'}
@@ -3762,7 +3725,6 @@ class VgEventStream(SchemaBase):
     def __init__(self, **kwds):
         super(VgEventStream, self).__init__(**kwds)
     
-
 
 class VgGenericBinding(SchemaBase):
     """VgGenericBinding schema wrapper
@@ -3780,7 +3742,6 @@ class VgGenericBinding(SchemaBase):
     def __init__(self, input=Undefined, element=Undefined, **kwds):
         super(VgGenericBinding, self).__init__(input=input, element=element, **kwds)
     
-
 
 class VgMarkConfig(SchemaBase):
     """VgMarkConfig schema wrapper
@@ -3851,16 +3812,17 @@ class VgMarkConfig(SchemaBase):
         super(VgMarkConfig, self).__init__(align=align, angle=angle, baseline=baseline, cursor=cursor, dx=dx, dy=dy, fill=fill, fillOpacity=fillOpacity, font=font, fontSize=fontSize, fontStyle=fontStyle, fontWeight=fontWeight, href=href, interpolate=interpolate, limit=limit, opacity=opacity, orient=orient, radius=radius, shape=shape, size=size, stroke=stroke, strokeDash=strokeDash, strokeDashOffset=strokeDashOffset, strokeOpacity=strokeOpacity, strokeWidth=strokeWidth, tension=tension, text=text, theta=theta, **kwds)
     
 
-
 class VgProjectionType(SchemaBase):
-    """VgProjectionType schema wrapper"""
+    """VgProjectionType schema wrapper
+    
+    One of ['albers', 'albersUsa', 'azimuthalEqualArea', 'azimuthalEquidistant', 'conicConformal', 'conicEqualArea', 'conicEquidistant', 'equirectangular', 'gnomonic', 'mercator', 'orthographic', 'stereographic', 'transverseMercator']
+    """
     _schema = {'$ref': '#/definitions/VgProjectionType'}
     _rootschema = Root._schema
 
     def __init__(self, *args):
         super(VgProjectionType, self).__init__(*args)
     
-
 
 class VgRadioBinding(SchemaBase):
     """VgRadioBinding schema wrapper
@@ -3880,7 +3842,6 @@ class VgRadioBinding(SchemaBase):
     def __init__(self, input=Undefined, options=Undefined, element=Undefined, **kwds):
         super(VgRadioBinding, self).__init__(input=input, options=options, element=element, **kwds)
     
-
 
 class VgRangeBinding(SchemaBase):
     """VgRangeBinding schema wrapper
@@ -3905,7 +3866,6 @@ class VgRangeBinding(SchemaBase):
         super(VgRangeBinding, self).__init__(input=input, element=element, max=max, min=min, step=step, **kwds)
     
 
-
 class VgScheme(SchemaBase):
     """VgScheme schema wrapper
     
@@ -3925,7 +3885,6 @@ class VgScheme(SchemaBase):
         super(VgScheme, self).__init__(scheme=scheme, count=count, extent=extent, **kwds)
     
 
-
 class VgSelectBinding(SchemaBase):
     """VgSelectBinding schema wrapper
     
@@ -3944,7 +3903,6 @@ class VgSelectBinding(SchemaBase):
     def __init__(self, input=Undefined, options=Undefined, element=Undefined, **kwds):
         super(VgSelectBinding, self).__init__(input=input, options=options, element=element, **kwds)
     
-
 
 class VgTitleConfig(SchemaBase):
     """VgTitleConfig schema wrapper
@@ -3978,7 +3936,6 @@ class VgTitleConfig(SchemaBase):
     def __init__(self, anchor=Undefined, angle=Undefined, baseline=Undefined, color=Undefined, font=Undefined, fontSize=Undefined, fontWeight=Undefined, limit=Undefined, offset=Undefined, orient=Undefined, **kwds):
         super(VgTitleConfig, self).__init__(anchor=anchor, angle=angle, baseline=baseline, color=color, font=font, fontSize=fontSize, fontWeight=fontWeight, limit=limit, offset=offset, orient=orient, **kwds)
     
-
 
 class ViewConfig(SchemaBase):
     """ViewConfig schema wrapper

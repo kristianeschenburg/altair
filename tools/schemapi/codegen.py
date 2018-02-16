@@ -18,7 +18,7 @@ class {classname}({basename}):
     _rootschema = {rootschema!r}
 
     {init_code}
-'''
+'''.lstrip()
 
 
 def schema_class(classname, schema, rootschema=None, basename='SchemaBase',
@@ -69,8 +69,10 @@ def docstring(classname, schema, rootschema=None, indent=4):
     #       values, etc.
     info = SchemaInfo(schema, rootschema)
     doc = ["{0} schema wrapper".format(classname)]
-    if info.description:
-        doc += ['', info.description]
+    if info.long_description:
+        doc += ['', info.long_description.replace('\n', ' ')]
+    #if info.description:
+    #    doc += ['', info.description]
     if info.properties:
         doc += ['',
                 'Attributes',
