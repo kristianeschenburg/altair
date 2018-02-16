@@ -7,6 +7,7 @@ from os.path import abspath, join, dirname
 # import schemapi from here
 sys.path.insert(0, abspath(dirname(__file__)))
 from schemapi.codegen import schema_class, CodeSnippet
+from schemapi.codegen import docstring as make_docstring
 from schemapi.utils import get_valid_identifier, SchemaInfo
 
 
@@ -23,7 +24,7 @@ def load_schema():
 
 FIELD_TEMPLATE = '''
 class {classname}(core.{basename}):
-    """{classname} channel"""
+    """{docstring}"""
     def __init__(self, field, **kwargs):
         super({classname}, self).__init__(field=field, **kwargs)
 
@@ -39,7 +40,7 @@ class {classname}(core.{basename}):
 
 VALUE_TEMPLATE = '''
 class {classname}Value(core.{basename}):
-    """{classname} channel"""
+    """{docstring}"""
     def __init__(self, value, *args, **kwargs):
         super({classname}Value, self).__init__(value=value, *args, **kwargs)
 '''
@@ -109,11 +110,18 @@ def generate_vegalite_channel_wrappers(schemafile, imports=None):
         for definition in definitions:
             basename = definition.split('/')[-1]
             classname = prop.title()
+            defschema = schema['definitions'][basename]
+            docstring = make_docstring(basename, schema=defschema,
+                                       rootschema=schema, indent=4)
+            lines = docstring.splitlines()
+            lines[0] = "{0} channel; a simple wrapper of core.{1}".format(classname, basename)
+            docstring = '\n'.join(lines)
             if 'Value' in basename:
                 template = VALUE_TEMPLATE
             else:
                 template = FIELD_TEMPLATE
             contents.append(template.format(classname=classname,
+                                            docstring=docstring,
                                             basename=basename))
     return '\n'.join(contents)
 
